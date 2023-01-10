@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NsButton from './components/ns-button/NsButton.vue'
+import NsButton from './components/button/Button.vue'
 </script>
 
 <template>
   <main>
-    <ns-button>test</ns-button>
+    <h1>test</h1>
   </main>
 </template>
