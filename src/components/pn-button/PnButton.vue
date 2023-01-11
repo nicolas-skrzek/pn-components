@@ -13,7 +13,7 @@ defineProps({
   },
   status: {
     type: String,
-    default: 'prymary',
+    default: 'primary',
     validator: statusValidator
   },
   href: {
@@ -31,7 +31,18 @@ defineProps({
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: 'PnButton',
+  computed: {
+    buttonClasses() {
+      return [
+        'btn',
+        `btn-${this.status}`,
+        `size-${this.size}`,
+        {
+          disabled: this.disabled,
+        }
+      ]
+    }
+  },
   methods: {
     onClick() {
       this.$emit('cick')
@@ -41,14 +52,10 @@ export default defineComponent({
 </script>
 
 <template>
-  <a v-if="href" class="btn" href="{{href}}" role="button" target="{{target}}" @click="onClick">
+  <a v-if="href" :class="buttonClasses" href="{{href}}" role="button" target="{{target}}" @click="onClick">
     <slot />
   </a>
-  <button v-else class="btn" @click="onClick">
+  <button v-else :class="buttonClasses" @click="onClick">
     <slot />
   </button>
 </template>
-
-<style lang="scss">
-@import "../../assets/main.scss";
-</style>

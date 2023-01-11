@@ -48,7 +48,7 @@ const Template = (args: any) => ({
   template: `
   <pn-text-field v-bind="args">
     <template #prepend v-if="args.prepend">
-      <pn-button v-bind="args">pre</pn-button>
+      <button>pre</button>
     </template>
 
     <template #append v-if="args.append">

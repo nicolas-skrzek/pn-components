@@ -24,7 +24,6 @@
   }
 
   @each $stat in $status {
-    &[status="#{$stat}"],
     &-#{$stat} {
       background-color: getValue($button-color-status, $stat, 'background-color');
       color: getValue($button-color-status, $stat, 'color');
