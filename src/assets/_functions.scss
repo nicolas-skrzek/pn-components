@@ -1,0 +1,21 @@
+@use "sass:map";
+
+@function get($map, $value) {
+    @return map.get($map, $value);
+}
+
+@function set($map, $index, $value) {
+    @return map.set($map, $index, $value);
+}
+
+@function getValue($config, $level, $name) {
+    @return get(get($config, $level), $name);
+}
+
+@function getColor($palette, $indice: 3, $opacity: 100) {
+    @if $opacity == 100 {
+        @return get($palette, $indice);
+    }
+
+    @return getValue($palette, $opacity, $indice);
+}

@@ -1,0 +1,45 @@
+.btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid $transparent;
+  border-radius: $border-radius;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: normal;
+  padding: 4px 16px;
+  min-height: 32px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+
+  &:not(:disabled),
+  &:not(.disabled) {
+    cursor: pointer;
+  }
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  @each $stat in $status {
+    &[status="#{$stat}"],
+    &-#{$stat} {
+      background-color: getValue($button-color-status, $stat, 'background-color');
+      color: getValue($button-color-status, $stat, 'color');
+
+      &:hover {
+        background-color: getValue($button-color-status, $stat, 'background-color-hover');
+        color: getValue($button-color-status, $stat, 'color-hover');
+      }
+    }
+  }
+}
+
+[type="button"],
+[type="reset"],
+[type="submit"],
+button {
+  -webkit-appearance: button;
+}

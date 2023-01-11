@@ -13,6 +13,7 @@ module.exports = {
     '@storybook/addon-docs',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
+    '@storybook/preset-scss',
   ],
   core: {
     builder: '@storybook/builder-vite',
@@ -27,6 +28,7 @@ module.exports = {
     return mergeConfig(config, {
       resolve: {
         alias: [{ find: '@assets', replacement: resolve(__dirname, '..', 'stories', 'assets') }],
+        alias: [{ find: '@', replacement: resolve(__dirname, './../src') }],
       },
     });
   },

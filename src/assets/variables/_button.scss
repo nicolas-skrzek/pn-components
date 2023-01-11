@@ -1,0 +1,38 @@
+$button-color-status: (
+  primary: (
+    background-color: getColor($blue, 500),
+    background-color-hover: getColor($blue, 600),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  ),
+  secondary: (
+    background-color: getColor($gray, 300),
+    background-color-hover: getColor($gray, 400),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  ),
+  success: (
+    background-color: getColor($green, 600),
+    background-color-hover: getColor($green, 700),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  ),
+  warning: (
+    background-color: getColor($yellow, 400),
+    background-color-hover: getColor($yellow, 500),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  ),
+  danger: (
+    background-color: getColor($red, 400),
+    background-color-hover: getColor($red, 500),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  ),
+  info: (
+    background-color: getColor($sky, 400),
+    background-color-hover: getColor($sky, 500),
+    color: getColor($gray, 50),
+    color-hover: getColor($gray, 100),
+  )
+);

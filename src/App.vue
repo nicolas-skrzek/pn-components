@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import NsButton from './components/button/Button.vue'
+import PnButton from './components/pn-button/PnButton.vue'
 </script>
 
 <template>
   <main>
-    <h1>test</h1>
+    <pn-button>test</pn-button>
   </main>
 </template>
