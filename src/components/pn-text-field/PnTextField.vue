@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { sizeValidator, statusValidator } from "./../utils/validator.utils";
+
 defineProps({
   disabled: {
     type: Boolean,
@@ -7,10 +9,12 @@ defineProps({
   size: {
     type: String,
     default: 'medium',
+    validator: sizeValidator
   },
   status: {
     type: String,
     default: 'prymary',
+    validator: statusValidator
   },
   placeholder: {
     type: String,
@@ -30,7 +34,7 @@ export default defineComponent({
 <template>
   <div :class="['input-field', `input-field-${status}`]">
     <slot name="prepend" />
-    <input class="form-input" :placeholder="placeholder" />
+    <input class="form-input" :placeholder="placeholder" type="text" />
     <slot name="append" />
   </div>
 </template>

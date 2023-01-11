@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { sizeValidator, statusValidator } from "./../utils/validator.utils";
+
 defineProps({
   disabled: {
     type: Boolean,
@@ -7,10 +9,12 @@ defineProps({
   size: {
     type: String,
     default: 'medium',
+    validator: sizeValidator
   },
   status: {
     type: String,
     default: 'prymary',
+    validator: statusValidator
   },
   href: {
     type: String,
