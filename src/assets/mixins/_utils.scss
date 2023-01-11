@@ -1,0 +1,15 @@
+
+@mixin status-color ($prop, $target, $name, $hasHover: false) {
+  @each $stat in $status {
+    &[status="#{$stat}"],
+    &-#{$stat} {
+      #{$prop}: getValue($target, $stat, $name);
+
+      @if $hasHover == true {
+        &:hover {
+          #{$prop}: getValue($target, $stat, $name + '-hover');
+        }
+      }
+    }
+  }
+}

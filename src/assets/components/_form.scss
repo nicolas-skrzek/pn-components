@@ -1,0 +1,46 @@
+$input-padding: 16px;
+$input-border-width: 2px;
+
+button, input, select, textarea {
+  background-color: transparent;
+  border-style: none;
+  &:focus {
+    outline: none;
+  }
+}
+
+.input-field {
+  display: flex;
+  border-radius: $border-radius;
+  border-bottom-width: $input-border-width;
+  border-bottom-style: solid;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  @include status-color('border-bottom-color', $input-color-status, 'border-color', true)
+}
+
+.form-input {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 23px;
+  padding-inline-start: $input-padding;
+  padding-inline-end: $input-padding;
+  width: 100%;
+  appearance: none;
+}
+
+.light .input-field,
+.input-field {
+  background-color: getColor($stone, 50);
+
+  &:hover {
+    background-color: getColor($stone, 100);
+  }
+}
+
+.dark .input-field {
+  background-color: getColor($stone, 600);
+
+  &:hover {
+    background-color: getColor($stone, 500);
+  }
+}
