@@ -15,7 +15,7 @@ button, input, select, textarea {
   border-bottom-width: $input-border-width;
   border-bottom-style: solid;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  @include status-color('border-bottom-color', $input-color-status, 'border-color', true)
+  @include status-color('border-bottom-color', $input-color-status, 'border-color', true);
 }
 
 .form-input {
@@ -26,6 +26,16 @@ button, input, select, textarea {
   padding-inline-end: $input-padding;
   width: 100%;
   appearance: none;
+}
+
+.input-detail {
+  display: flex;
+  justify-content: space-between;
+
+  .input-counter {
+    color: getColor($gray, 400);
+    font-size: 0.75em;
+  }
 }
 
 .light .input-field,
