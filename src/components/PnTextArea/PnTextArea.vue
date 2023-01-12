@@ -41,7 +41,7 @@ defineProps({
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import PnInputDetail from "./../pn-input-detail/PnInputDetail.vue";
+import PnInputDetail from "./../PnInputDetail/PnInputDetail.vue";
 
 export default defineComponent({
   name: 'PnTextArea',
