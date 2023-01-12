@@ -9,6 +9,10 @@ button, input, select, textarea {
   }
 }
 
+textarea {
+  resize: none;
+}
+
 .input-field {
   display: flex;
   border-radius: $border-radius;
