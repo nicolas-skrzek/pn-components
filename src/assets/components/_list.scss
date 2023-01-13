@@ -1,0 +1,31 @@
+.list {
+  &-header {
+    border-bottom: 1px solid getColor($stone, 200);
+  }
+
+  &-item {
+    padding: 4px 16px;
+    min-height: 36px;
+    align-items: center;
+    display: grid;
+    grid-template-areas: "prepend content append";
+    grid-template-columns: max-content auto max-content;
+
+    &-link {
+      cursor: pointer;
+
+      &:hover {
+        background-color: getColor($stone, 50);
+      }
+    }
+
+    &-disabled {
+      cursor: not-allowed;
+      color: getColor($stone, 400);
+
+      &:hover {
+        background-color: inherit;
+      }
+    }
+  }
+}
