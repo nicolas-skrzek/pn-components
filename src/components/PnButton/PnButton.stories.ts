@@ -1,10 +1,9 @@
 import PnButton from "./PnButton.vue"
 import { COLOR_STATUS } from "../../const/colors.const";
 import { SIZE } from "../../const/size.const";
-import type { ButtonProps } from './PnButton.type';
 
 export default {
-  title: "Nicolas Skrzek/UI Components/Button",
+  title: "Ponion Components/Button",
   component: PnButton,
   args: {
     status: 'primary',

@@ -1,6 +1,6 @@
 import PnCard from "./PnCard.vue"
 export default {
-  title: "Nicolas Skrzek/UI Components/Card",
+  title: "Ponion Components/Card",
   component: PnCard,
 }
 

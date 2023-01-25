@@ -3,7 +3,7 @@ import { COLOR_STATUS } from "../../const/colors.const";
 import { SIZE } from "../../const/size.const";
 
 export default {
-  title: "Nicolas Skrzek/UI Components/Form/TextField",
+  title: "Ponion Components/Form/TextField",
   component: PnTextField,
   args: {
     status: 'primary',

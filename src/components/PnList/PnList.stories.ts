@@ -1,7 +1,7 @@
 import PnList from "./PnList.vue";
 
 export default {
-  title: "Nicolas Skrzek/UI Components/List",
+  title: "Ponion Components/List",
   component: PnList,
   args: {
     disabled: false,

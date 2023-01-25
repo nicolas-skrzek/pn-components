@@ -3,7 +3,7 @@ import { COLOR_STATUS } from "../../const/colors.const";
 import { SIZE } from "../../const/size.const";
 
 export default {
-  title: "Nicolas Skrzek/UI Components/Form/TextArea",
+  title: "Ponion Components/Form/TextArea",
   component: PnTextArea,
   args: {
     status: 'primary',
