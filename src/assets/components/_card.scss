@@ -1,0 +1,31 @@
+.card {
+  border: 1px solid getColor($stone, 900, .025);
+  // border: 1px solid rgba(0, 0, 0, .02);
+  box-shadow: 0 10px 15px -3px getColor($stone, 900, .12),0 4px 6px -4px getColor($stone, 900, .12);
+
+  &-header,
+  &-content {
+    padding: 0.5rem 1rem;;
+  }
+
+  &-header {
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: .0125em;
+      line-height: 2rem;
+      white-space: nowrap;
+      word-break: normal;
+      word-wrap: break-word;
+    }
+
+    .card-subtitle {
+      font-size: .875rem;
+      font-weight: 400;
+      letter-spacing: .0175em;
+      line-height: 1.25rem;
+      opacity: 0.5;
+      padding: 0 0 .25rem;
+    }
+  }
+}
