@@ -12,10 +12,10 @@
     @return get(get($config, $level), $name);
 }
 
-@function getColor($palette, $indice: 3, $opacity: 100) {
-    @if $opacity == 100 {
+@function getColor($palette, $indice: 3, $opacity: 1) {
+    @if $opacity == 1 {
         @return get($palette, $indice);
     }
 
-    @return getValue($palette, $opacity, $indice);
+    @return rgba(get($palette, $indice), $opacity);
 }
