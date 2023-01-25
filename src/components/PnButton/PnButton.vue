@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { sizeValidator, statusValidator } from './../utils/validator.utils'
+import { sizeValidator, statusValidator } from './../../utils/validator.utils'
 
 defineProps({
   disabled: {
