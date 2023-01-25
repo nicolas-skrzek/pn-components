@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PnButton from './components/pn-button/PnButton.vue'
 </script>
 
 <template>
