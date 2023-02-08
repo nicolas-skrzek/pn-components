@@ -26,11 +26,16 @@ export default defineComponent({
   },
   methods: {
     toggleOpen() {
-      if (this.closeOnClickContent && !this.disabled) {
+      if (!this.disabled) {
         this.open = !this.open
         this.$emit('open', this.open)
       }
-    }
+    },
+    eventCloseClickOnContent() {
+      if (this.closeOnClickContent) {
+        this.toggleOpen()
+      }
+    },
   }
 })
 </script>
@@ -40,7 +45,7 @@ export default defineComponent({
         <div class="pn-menu-activator" @click="toggleOpen()">
           <slot name="activator" />
         </div>
-        <div v-if="open" class="pn-menu-content">
+        <div v-if="open" class="pn-menu-content" @click="eventCloseClickOnContent()">
           <slot name="content" />
         </div>
     </div>
