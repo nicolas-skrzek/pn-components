@@ -65,3 +65,14 @@ textarea {
     background-color: getColor($stone, 500);
   }
 }
+
+/**
+ * select
+ */
+.pn-select {
+  .input-field {
+    input[readonly] {
+      cursor: pointer;
+    }
+  }
+}
