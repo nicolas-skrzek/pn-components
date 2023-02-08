@@ -6,6 +6,10 @@ defineProps({
     type: Boolean,
     default: false,
   },
+  readonly: {
+    type: Boolean,
+    default: false,
+  },
   size: {
     type: String,
     default: 'medium',
@@ -34,7 +38,7 @@ export default defineComponent({
 <template>
   <div :class="['input-field', `input-field-${status}`]">
     <slot name="prepend" />
-    <input class="form-input" :placeholder="placeholder" type="text" />
+    <input class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
     <slot name="append" />
   </div>
 </template>

@@ -20,6 +20,13 @@ textarea {
   border-bottom-style: solid;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   @include status-color('border-bottom-color', $input-color-status, 'border-color', true);
+
+  input[readonly] {
+    cursor: default;
+  }
+  input[disabled] {
+    cursor: not-allowed;
+  }
 }
 
 .form-input {

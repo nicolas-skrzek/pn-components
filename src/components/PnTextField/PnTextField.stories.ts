@@ -8,6 +8,7 @@ export default {
   args: {
     status: 'primary',
     disabled: false,
+    readonly: false,
     size: 'medium',
     placeholder: 'Text Field',
     prepend: false,
@@ -19,6 +20,10 @@ export default {
       control: { type: "select" },
     },
     disabled: {
+      options: [true, false],
+      control: { type: "boolean" },
+    },
+    readonly: {
       options: [true, false],
       control: { type: "boolean" },
     },
