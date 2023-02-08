@@ -1,6 +1,6 @@
-import type { Color } from "./../types/color.type";
+import type { PnColor } from "./../types/color.type";
 
-export const COLOR_STATUS: Color[] = [
+export const COLOR_STATUS: PnColor[] = [
   'primary',
   'secondary',
   'success',

@@ -1,1 +1,2 @@
-export type Color = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'info'
+export type PnStatus = 'success' | 'warning' | 'danger' | 'info'
+export type PnColor = 'primary' | 'secondary' | PnStatus
