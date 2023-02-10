@@ -1,6 +1,8 @@
 .list {
+  background-color: getColor($stone, 50);
+
   &-header {
-    border-bottom: 1px solid getColor($stone, 200);
+    border-bottom: 1px solid getColor($stone, 300);
   }
 
   &-item {
@@ -10,12 +12,13 @@
     display: grid;
     grid-template-areas: "prepend content append";
     grid-template-columns: max-content auto max-content;
+    background-color: getColor($stone, 50);
 
     &-link {
       cursor: pointer;
 
       &:hover {
-        background-color: getColor($stone, 50);
+        background-color: getColor($stone, 200);
       }
     }
 
