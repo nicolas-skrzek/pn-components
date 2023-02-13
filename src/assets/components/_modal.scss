@@ -1,0 +1,32 @@
+.pn-modal {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2048;
+
+  &-content {
+    width: 100%;
+    margin: 24px;
+    max-width: calc(100% - 48px);
+    position: absolute;
+    > .card {
+      overflow-y: auto;
+    }
+  }
+}
+
+.pn-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: getColor($stone, 900);
+  opacity: 32%;
+}
