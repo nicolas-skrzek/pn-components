@@ -1,8 +1,8 @@
 .card {
   border: 1px solid getColor($stone, 900, .025);
-  // border: 1px solid rgba(0, 0, 0, .02);
   box-shadow: 0 10px 15px -3px getColor($stone, 900, .12),0 4px 6px -4px getColor($stone, 900, .12);
-  background-color: getColor($stone, 50)
+  background-color: getColor($stone, 50);
+  border-radius: 2px;
 
   &-header,
   &-content {
