@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { sizeValidator, statusValidator } from "./../../utils/validator.utils";
-
 defineProps({
   disabled: {
     type: Boolean,
