@@ -72,7 +72,7 @@ const Template = (args: any) => ({
   },
   template: `
   <div :style="{
-    height: args.headerFixed ? '300px' : auto,
+    height: args.headerFixed ? '300px' : 'auto',
     overflow: 'auto',
   }">
   <table :class="[
