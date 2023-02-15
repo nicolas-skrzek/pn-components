@@ -1,24 +1,26 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 
-import type { listItem } from "./../PnListItem/PnListItem.vue";
-
-defineProps({
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  items: Array as PropType<listItem[]>,
-})
+import { defineComponent } from 'vue'
+import type { listItem } from '../PnListItem/PnListItem.vue'
 </script>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import PnListItem from './../PnListItem/PnListItem.vue';
+import PnListItem from '../PnListItem/PnListItem.vue'
 
 export default defineComponent({
   name: 'PnList',
-  components: { PnListItem }
+  components: { PnListItem },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    items: {
+      type: Array as PropType<listItem[]>,
+      required: true,
+    },
+  },
 })
 </script>
 

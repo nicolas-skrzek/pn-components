@@ -1,4 +1,6 @@
-<script setup lang="ts">
+<script lang="ts">
+import { defineComponent } from 'vue'
+
 export interface listItem {
   disabled?: boolean,
   link?: boolean,
@@ -6,42 +8,40 @@ export interface listItem {
   value?: string | number,
 }
 
-defineProps({
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  link: {
-    type: Boolean,
-    default: true,
-  },
-  title: {
-    type: String,
-    default: null,
-  },
-  value: [String, Number]
-})
-</script>
-
-<script lang="ts">
-import { defineComponent } from 'vue'
-
 export default defineComponent({
   name: 'PnList',
-  emits: {
-    click: (e: MouseEvent | KeyboardEvent) => true,
-  }
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    link: {
+      type: Boolean,
+      default: true,
+    },
+    title: {
+      type: String,
+      default: null,
+    },
+    value: {
+      type: [String, Number],
+      required: true,
+    },
+  },
+  emits: ['click'],
 })
 </script>
 
 <template>
-  <div :class="[
-    'list-item',
-    {
-      'list-item-disabled': disabled,
-      'list-item-link': link,
-    },
-    ]">
+  <div
+    :class="[
+      'list-item',
+      {
+        'list-item-disabled': disabled,
+        'list-item-link': link,
+      },
+    ]"
+  >
     <slot>
       {{ title }}
     </slot>

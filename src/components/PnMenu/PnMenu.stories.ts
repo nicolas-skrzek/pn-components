@@ -1,24 +1,24 @@
-import PnMenu from "./PnMenu.vue"
-import PnButton from "./../PnButton/PnButton.vue"
-import PnList from "./../PnList/PnList.vue";
+import PnMenu from './PnMenu.vue'
+import PnButton from '../PnButton/PnButton.vue'
+import PnList from '../PnList/PnList.vue'
 
 export default {
-  title: "Ponion Components/Menu",
+  title: 'Ponion Components/Menu',
   component: PnMenu,
-    args: {
-        isOpen: false,
-    },
+  args: {
+    isOpen: false,
+  },
   argTypes: {
     isOpen: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
-  }
+  },
 }
 
 const Template = (args: any) => ({
   components: { PnMenu, PnButton, PnList },
   setup() {
-    return { args };
+    return { args }
   },
   data: () => ({
     isOpen: false,
@@ -45,7 +45,7 @@ const Template = (args: any) => ({
         disabled: true,
         link: true,
       },
-    ]
+    ],
   }),
   template: `
     <pn-menu>
@@ -56,7 +56,7 @@ const Template = (args: any) => ({
         <pn-list :items="items" />
       </template>
     </pn-menu>
-  `
+  `,
 })
 
 export const Default = Template.bind({})

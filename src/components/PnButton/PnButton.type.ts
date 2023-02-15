@@ -1,6 +1,6 @@
 import type { SizeElement } from '@/types/size.type'
 import type { TagetLink } from '@/types/element.type'
-import type { Color } from "../../types/color.type";
+import type { Color } from '../../types/color.type'
 
 export interface ButtonProps {
   disabled?: boolean

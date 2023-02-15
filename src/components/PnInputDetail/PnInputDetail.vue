@@ -1,34 +1,27 @@
-<script setup lang="ts">
-defineProps({
-  status: {
-    type: String,
-    default: '',
-  },
-  message: {
-    type: String,
-    default: '',
-  },
-  counter: {
-    type: Number,
-    default: 0,
-  },
-})
-</script>
-
 <script lang="ts">
 import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'PnInputDetail',
+  props: {
+    status: {
+      type: String,
+      default: '',
+    },
+    message: {
+      type: String,
+      default: '',
+    },
+    counter: {
+      type: Number,
+      default: 0,
+    },
+  },
   computed: {
     statusClass() {
-      if (!this.status) {
-        return;
-      }
-
-      return `text-${this.status}`
-    }
-  }
+      return this.status ? `text-${this.status}` : ''
+    },
+  },
 })
 </script>
 

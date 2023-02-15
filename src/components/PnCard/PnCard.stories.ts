@@ -1,13 +1,14 @@
-import PnCard from "./PnCard.vue"
+import PnCard from './PnCard.vue'
+
 export default {
-  title: "Ponion Components/Card",
+  title: 'Ponion Components/Card',
   component: PnCard,
 }
 
 const Template = (args: any) => ({
   components: { PnCard },
   setup() {
-    return { args };
+    return { args }
   },
   template: `
     <pn-card>
@@ -23,7 +24,7 @@ const Template = (args: any) => ({
         <div>Card content</div>
       </template>
     </pn-card>
-  `
+  `,
 })
 
 export const Default = Template.bind({})
