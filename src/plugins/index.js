@@ -1,12 +1,10 @@
-import components from'./components'
+import components from './components'
 
 export default {
-  install: (app, options) => {
-    for (const prop in components) {
-      if (components.hasOwnProperty(prop)) {
-        const component = components[prop]
-        app.component(component.name, component)
-      }
-    }
-  }
+  install: (app) => {
+    Object.keys(components).forEach((k) => {
+      const component = components[k]
+      app.component(component.name, component)
+    })
+  },
 }

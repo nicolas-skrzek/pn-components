@@ -1,74 +1,74 @@
 export default {
-  title: "Ponion Components/Table",
+  title: 'Ponion Components/Table',
   args: {
     bordered: false,
     headerFixed: false,
-    density: "medium",
+    density: 'medium',
     items: [
-          {
-            name: 'Frozen Yogurt',
-            calories: 159,
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-          },
-          {
-            name: 'Cupcake',
-            calories: 305,
-          },
-          {
-            name: 'Gingerbread',
-            calories: 356,
-          },
-          {
-            name: 'Jelly bean',
-            calories: 375,
-          },
-          {
-            name: 'Lollipop',
-            calories: 392,
-          },
-          {
-            name: 'Honeycomb',
-            calories: 408,
-          },
-          {
-            name: 'Donut',
-            calories: 452,
-          },
-          {
-            name: 'KitKat',
-            calories: 518,
-          },
-        ],
+      {
+        name: 'Frozen Yogurt',
+        calories: 159,
+      },
+      {
+        name: 'Ice cream sandwich',
+        calories: 237,
+      },
+      {
+        name: 'Eclair',
+        calories: 262,
+      },
+      {
+        name: 'Cupcake',
+        calories: 305,
+      },
+      {
+        name: 'Gingerbread',
+        calories: 356,
+      },
+      {
+        name: 'Jelly bean',
+        calories: 375,
+      },
+      {
+        name: 'Lollipop',
+        calories: 392,
+      },
+      {
+        name: 'Honeycomb',
+        calories: 408,
+      },
+      {
+        name: 'Donut',
+        calories: 452,
+      },
+      {
+        name: 'KitKat',
+        calories: 518,
+      },
+    ],
   },
   argTypes: {
     bordered: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     headerFixed: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     density: {
-      options: ["small", "medium", "large"],
-      control: { type: "select" },
+      options: ['small', 'medium', 'large'],
+      control: { type: 'select' },
     },
     items: {
-      control: { type: "object" },
+      control: { type: 'object' },
     },
-  }
+  },
 }
 
 const Template = (args: any) => ({
   setup() {
-    return { args };
+    return { args }
   },
   template: `
   <div :style="{
@@ -104,7 +104,7 @@ const Template = (args: any) => ({
     </tbody>
   </table>
   </div>
-  `
+  `,
 })
 
 export const Default = Template.bind({})

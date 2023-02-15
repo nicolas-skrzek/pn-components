@@ -1,9 +1,9 @@
-import PnTextField from "./PnTextField.vue";
-import { COLOR_STATUS } from "../../const/colors.const";
-import { SIZE } from "../../const/size.const";
+import PnTextField from './PnTextField.vue'
+import { COLOR_STATUS } from '@/const/colors.const'
+import { SIZE } from '@/const/size.const'
 
 export default {
-  title: "Ponion Components/Form/TextField",
+  title: 'Ponion Components/Form/TextField',
   component: PnTextField,
   args: {
     status: 'primary',
@@ -17,38 +17,38 @@ export default {
   argTypes: {
     status: {
       options: COLOR_STATUS,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     disabled: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     readonly: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     size: {
       options: SIZE,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     placeholder: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     prepend: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     append: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
-  }
+  },
 }
 
 const Template = (args: any) => ({
   components: { PnTextField },
   setup() {
-    return { args };
+    return { args }
   },
   template: `
   <pn-text-field v-bind="args">
@@ -60,7 +60,7 @@ const Template = (args: any) => ({
       <button>ap</button>
     </template>
   </pn-text-field>
-  `
+  `,
 })
 
 export const Default = Template.bind({})

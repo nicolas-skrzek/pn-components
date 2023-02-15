@@ -1,51 +1,51 @@
 <script setup lang="ts">
-import { sizeValidator, statusValidator } from "./../../utils/validator.utils";
-
-defineProps({
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
-  size: {
-    type: String,
-    default: 'medium',
-    validator: sizeValidator
-  },
-  status: {
-    type: String,
-    default: 'primary',
-    validator: statusValidator
-  },
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  name: {
-    type: String,
-    default: '',
-  },
-  rows: {
-    type: Number,
-    default: 5,
-  },
-  value: {
-    type: String,
-    default: '',
-  },
-  displayDetails: {
-    type: Boolean,
-    default: false,
-  },
-})
+import { defineComponent } from 'vue'
+import { sizeValidator, statusValidator } from '@/utils/validator.utils'
 </script>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import PnInputDetail from "./../PnInputDetail/PnInputDetail.vue";
+import PnInputDetail from '../PnInputDetail/PnInputDetail.vue'
 
 export default defineComponent({
   name: 'PnTextArea',
   components: { PnInputDetail },
+  props: {
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    size: {
+      type: String,
+      default: 'medium',
+      validator: sizeValidator,
+    },
+    status: {
+      type: String,
+      default: 'primary',
+      validator: statusValidator,
+    },
+    placeholder: {
+      type: String,
+      default: '',
+    },
+    name: {
+      type: String,
+      default: '',
+    },
+    rows: {
+      type: Number,
+      default: 5,
+    },
+    value: {
+      type: String,
+      default: '',
+    },
+    displayDetails: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  emits: ['value'],
   computed: {
     counter() {
       return this.value.length
@@ -56,9 +56,9 @@ export default defineComponent({
       },
       set(v: String) {
         this.$emit('value', v)
-      }
-    }
-  }
+      },
+    },
+  },
 })
 </script>
 
