@@ -1,13 +1,17 @@
-<script lang="ts">
+<script setup lang="ts">
+import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import PnTreeNode from '../PnTreeNode/PnTreeNode.vue'
+import type { PnTreeNodeType } from '@/components/PnTreeNode/PnTreeNode.type'
+</script>
+<script lang="ts">
+import PnTreeNode from '@/components/PnTreeNode/PnTreeNode.vue'
 
 export default defineComponent({
   name: 'PnTree',
   components: { PnTreeNode },
   props: {
     data: {
-      type: Array,
+      type: Array as PropType<PnTreeNodeType[]>,
       required: true,
     },
   },
