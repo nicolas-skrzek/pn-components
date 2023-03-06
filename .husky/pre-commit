@@ -2,4 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 npx --no git-precommit-checks
-npm run lint
+yarn lint
+yarn type-check
