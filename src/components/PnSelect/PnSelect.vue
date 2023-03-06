@@ -2,8 +2,8 @@
 import { defineComponent } from 'vue'
 import type { PropType } from 'vue'
 import { sizeValidator, statusValidator } from '@/utils/validator.utils'
-import type { PnColor } from '@/types/color/type'
-import type { listItem } from '@/PnListItem/PnListItem.vue'
+import type { PnColor } from '@/types/color.type'
+import type { PnListItemType } from '@/components/PnListItem/PnListItem.type'
 </script>
 
 <script lang="ts">
@@ -41,7 +41,7 @@ export default defineComponent({
       default: '',
     },
     items: {
-      type: Array as PropType<listItem[]>,
+      type: Array as PropType<PnListItemType[]>,
       required: true,
     },
   },

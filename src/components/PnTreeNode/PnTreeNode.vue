@@ -1,11 +1,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
+import type { PropType } from 'vue'
+import type { PnTreeNodeType } from './PnTreeNode.type'
 
 export default defineComponent({
   name: 'PnTreeNode',
   props: {
     options: {
-      type: Object,
+      type: Object as PropType<PnTreeNodeType>,
       required: true,
     },
   },

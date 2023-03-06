@@ -1,15 +1,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 
-export interface listItem {
-  disabled?: boolean,
-  link?: boolean,
-  title: string,
-  value?: string | number,
-}
-
 export default defineComponent({
-  name: 'PnList',
+  name: 'PnListItem',
   props: {
     disabled: {
       type: Boolean,
