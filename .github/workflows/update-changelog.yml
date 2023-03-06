@@ -21,12 +21,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
+          cache: "yarn"
 
-      - run: npm ci
+      - name: Run install
+        run: yarn install --immutable --immutable-cache --check-cache
 
       - name: Start changelog
-        run: npm run release:minor
+        run: yarn release:minor
 
       - name: Publish release
         run: git push --follow-tags origin main
