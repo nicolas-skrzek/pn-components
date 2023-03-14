@@ -1,4 +1,4 @@
-import type { PnColor } from "./../types/color.type";
+import type { PnColor } from '../types/color.type'
 
 export const COLOR_STATUS: PnColor[] = [
   'primary',

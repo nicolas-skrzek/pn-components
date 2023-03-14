@@ -1,10 +1,10 @@
-import PnSelect from "./PnSelect.vue";
-import { COLOR_STATUS } from "../../const/colors.const";
-import { SIZE } from "../../const/size.const";
-import { TRUE_FALSE } from "../../const/common.const";
+import PnSelect from './PnSelect.vue'
+import { COLOR_STATUS } from '@/const/colors.const'
+import { SIZE } from '@/const/size.const'
+import { TRUE_FALSE } from '@/const/common.const'
 
 export default {
-  title: "Ponion Components/Form/Select",
+  title: 'Ponion Components/Form/Select',
   component: PnSelect,
   args: {
     status: 'primary',
@@ -35,40 +35,40 @@ export default {
         disabled: true,
         link: true,
       },
-    ]
+    ],
   },
   argTypes: {
     status: {
       options: COLOR_STATUS,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     size: {
       options: SIZE,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     placeholder: {
-      control: { type: "text" },
+      control: { type: 'text' },
     },
     disabled: {
       options: TRUE_FALSE,
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     multiple: {
       options: TRUE_FALSE,
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     items: {
-      control: { type: "object" },
+      control: { type: 'object' },
     },
-  }
+  },
 }
 
 const Template = (args: any) => ({
   components: { PnSelect },
   setup() {
-    return { args };
+    return { args }
   },
-  template: `<pn-select v-bind="args" />`
+  template: '<pn-select v-bind="args" />',
 })
 
 export const Default = Template.bind({})

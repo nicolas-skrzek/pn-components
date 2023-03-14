@@ -1,9 +1,9 @@
 {
   "source": "https://github.com/conventional-changelog/conventional-changelog-config-spec/blob/master/versions/2.2.0/",
   "types": [
-    {"type": "feat", "hidden": false, "section": "Added"},
-    {"type": "fix", "hidden": false, "section": "Fixed"},
-    {"type": "refactor", "hidden": false, "section": "Changed"},
+    {"type": "feat", "hidden": false, "section": "Features"},
+    {"type": "fix", "hidden": false, "section": "Bug fix"},
+    {"type": "refactor", "hidden": false, "section": "Changes"},
     {"type": "delete", "hidden": false, "section": "Removed"},
     {"type": "security", "hidden": false, "section": "Security"},
     {"type": "deprecate", "hidden": false, "section": "Deprecated"},

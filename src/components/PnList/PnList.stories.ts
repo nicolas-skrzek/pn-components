@@ -1,7 +1,7 @@
-import PnList from "./PnList.vue";
+import PnList from './PnList.vue'
 
 export default {
-  title: "Ponion Components/List",
+  title: 'Ponion Components/List',
   component: PnList,
   args: {
     disabled: false,
@@ -28,25 +28,25 @@ export default {
         disabled: true,
         link: true,
       },
-    ]
+    ],
   },
   argTypes: {
     disabled: {
       options: [true, false],
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     items: {
-      control: { type: "object" },
+      control: { type: 'object' },
     },
-  }
+  },
 }
 
 const Template = (args: any) => ({
   components: { PnList },
   setup() {
-    return { args };
+    return { args }
   },
-  template: `<pn-list v-bind="args" />`
+  template: '<pn-list v-bind="args" />',
 })
 
 export const Default = Template.bind({})
