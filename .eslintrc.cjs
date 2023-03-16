@@ -42,6 +42,7 @@ module.exports = {
     ecmaVersion: 'latest',
   },
   rules: {
+    'class-methods-use-this': ['error', { enforceForClassFields: false }],
     'comma-dangle': ['warn', 'always-multiline'],
     curly: ['warn', 'all'],
     indent: ['warn', 2, {

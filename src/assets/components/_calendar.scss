@@ -1,0 +1,75 @@
+.calendar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &-day {
+    flex: 1;
+    border-collapse: separate;
+    color: getColor($stone, 700);
+    padding: 6px;
+    text-align: center;
+  }
+
+  .calendar-header {
+    display: flex;
+    border-left: 1px solid getColor($stone, 100);
+    border-top: 1px solid getColor($stone, 100);
+
+    .calendar-day {
+      font-weight: 600;
+      border-right: 1px solid getColor($stone, 100);
+    }
+  }
+  .calendar-weeks {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid getColor($stone, 100);
+    border-top: 1px solid getColor($stone, 100);
+
+    .calendar-week {
+      display: flex;
+      flex: 1;
+
+      .calendar-day {
+        border-radius: 2px;
+        border-right: 1px solid getColor($stone, 100);
+        border-bottom: 1px solid getColor($stone, 100);
+
+        .calendar-day-label {
+          padding: 7px 6px 5px 6px;
+          cursor: pointer;
+        }
+
+        .calendar-event {
+          display: flex;
+          border-radius: 2px;
+          padding: 2px;
+          text-align: left;
+          font-size: 12px;
+          margin-bottom: 1px;
+          cursor: pointer;
+
+          .calendar-event-time {
+            font-weight: 600;
+          }
+
+          .calendar-event-label {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 100%;
+            padding-left: 4px;
+          }
+        }
+
+        &.previous,
+        &.next {
+          background-color: getColor($stone, 100);
+        }
+      }
+    }
+  }
+}
