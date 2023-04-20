@@ -1,38 +1,36 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script setup lang="ts">
+import { defineComponent, ref } from 'vue'
 
-export default defineComponent({
+export interface PnMenuProps {
+  disabled?: boolean;
+  closeOnClickContent?: boolean;
+}
+
+defineComponent({
   name: 'PnMenu',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    closeOnClickContent: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  emits: ['open'],
-  data() {
-    return {
-      open: false,
-    }
-  },
-  methods: {
-    toggleOpen() {
-      if (!this.disabled) {
-        this.open = !this.open
-        this.$emit('open', this.open)
-      }
-    },
-    eventCloseClickOnContent() {
-      if (this.closeOnClickContent) {
-        this.toggleOpen()
-      }
-    },
-  },
 })
+
+const props = withDefaults(defineProps<PnMenuProps>(), {
+    disabled: false,
+    closeOnClickContent: true,
+})
+
+const emits = defineEmits(['open'])
+
+const open = ref(false)
+
+const toggleOpen = (): void => {
+  if (!props.disabled) {
+    open.value = !open.value
+    emits('open', open)
+  }
+}
+
+const eventCloseClickOnContent = (): void => {
+  if (props.closeOnClickContent) {
+      toggleOpen()
+  }
+}
 </script>
 
 <template>

@@ -1,101 +1,74 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 import { Dates } from '@/utils/dates.utils'
 import { getDaysInWeek } from './PnCalendar.utils'
 import { NUMBER_WEEKS, FIRST_DAY_OF_MONTH } from './PnCalendar.const'
+import type { DayFormated, CalendarEvent } from './PnCalendar.types'
 
-defineEmits(['date', 'click:day', 'click:event'])
-</script>
-<script lang="ts">
+export interface PnCalendarProps {
+    isMondayFirst?: boolean;
+    date?: any;
+    events?: CalendarEvent[] | any[];
+    weekPerMonth?: number;
+}
 
-export default defineComponent({
+export interface WeeksType {
+    id: number;
+    days: DayFormated[];
+}
+
+defineComponent({
   name: 'PnCalendar',
-  props: {
-    isMondayFirst: {
-      type: Boolean,
-      default: false,
-    },
-    date: {
-      type: Date,
-      default: new Date(),
-    },
-    events: {
-      type: Array,
-      default: () => [],
-    },
-    weekPerMonth: {
-      type: Number,
-      default: NUMBER_WEEKS,
-    },
-  },
-  data() {
-    const dates = new Dates('', this.isMondayFirst)
-
-    return {
-      dates,
-    }
-  },
-  computed: {
-    firtDayOfWeek() {
-      return this.dates.firtDayOfWeek()
-    },
-    firstDayOfMonth() {
-      return new Date(this.year, this.month, FIRST_DAY_OF_MONTH)
-    },
-    daysName() {
-      return this.dates.daysNameShort()
-    },
-    month() {
-      return this.dates.month(this.selectedDate)
-    },
-    monthName() {
-      return this.dates.monthName(this.selectedDate)
-    },
-    year() {
-      return this.dates.year(this.selectedDate)
-    },
-    numberDaysInMonth() {
-      return this.dates.numberDaysInMonth(this.firstDayOfMonth)
-    },
-    firstDayOfWeekOfMonth() {
-      return this.dates.dayOfWeek(this.firstDayOfMonth)
-    },
-    lastDayOfWeekOfMonth() {
-      return this.dates.dayOfWeek(new Date(this.year, this.month, this.numberDaysInMonth))
-    },
-    lastDayOfMonth() {
-      return this.dates.lastDayOfMonth(this.firstDayOfMonth)
-    },
-    selectedDate: {
-      get() {
-        return this.date
-      },
-      set(date: Date) {
-        this.$emit('date', date)
-      },
-    },
-    weeks() {
-      const weeks = []
-      for (let i = 1; i <= this.weekPerMonth; i += 1) {
-        const days = getDaysInWeek(
-          this.dates,
-          this.firstDayOfWeekOfMonth,
-          this.firtDayOfWeek,
-          this.lastDayOfWeekOfMonth,
-          this.numberDaysInMonth,
-          this.year,
-          this.month,
-          i,
-          this.events,
-        )
-
-        weeks.push({ id: i, days })
-      }
-
-      return weeks
-    },
-  },
 })
+
+const emits = defineEmits(['date', 'click:day', 'click:event'])
+
+const props = withDefaults(defineProps<PnCalendarProps>(), {
+    isMondayFirst: false,
+    date: new Date(),
+    events: () => [],
+    weekPerMonth: NUMBER_WEEKS,
+})
+
+const dates = new Dates('', props.isMondayFirst)
+
+const selectedDate = computed({
+  get: (): Date => props.date,
+  set: (date: Date) => emits('date', date),
+})
+
+const firtDayOfWeek = computed(() => dates.firtDayOfWeek())
+const month = computed(() => dates.month(selectedDate.value))
+const year = computed(() => dates.year(selectedDate.value))
+const firstDayOfMonth = computed(() => new Date(year.value, month.value, FIRST_DAY_OF_MONTH))
+const daysName = computed(() => dates.daysNameShort())
+const numberDaysInMonth = computed(() => dates.numberDaysInMonth(firstDayOfMonth.value))
+const firstDayOfWeekOfMonth = computed(() => dates.dayOfWeek(firstDayOfMonth.value))
+const lastDayOfWeekOfMonth = computed(() => dates.dayOfWeek(new Date(year.value, month.value, numberDaysInMonth.value)))
+
+const weeks = computed((): WeeksType[] => {
+  const internalweeks: WeeksType[] = []
+  if (props?.weekPerMonth) {
+    for (let i = 1; i <= props.weekPerMonth; i += 1) {
+      const days = getDaysInWeek(
+        dates,
+        firstDayOfWeekOfMonth.value,
+        firtDayOfWeek.value,
+        lastDayOfWeekOfMonth.value,
+        numberDaysInMonth.value,
+        year.value,
+        month.value,
+        i,
+        props.events,
+      )
+
+      internalweeks.push({ id: i, days })
+    }
+  }
+
+  return internalweeks
+})
+
 </script>
 
 <template>
@@ -126,8 +99,8 @@ export default defineComponent({
               :style="event.style"
               :data-date="event.date"
               aria-hidden="true"
-              @click="$emit('click:event', event)"
-              @keyDown="$emit('click:event', event)"
+              @click="emits('click:event', event)"
+              @keyDown="emits('click:event', event)"
             >
               <div v-if="event?.time" class="calendar-event-time">
                 {{ event.time }}

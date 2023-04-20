@@ -1,21 +1,22 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue'
 import PnCard from '@/components/PnCard/PnCard.vue'
 
-export default defineComponent({
+export interface PnModalProps {
+    open?: boolean;
+}
+
+defineComponent({
   name: 'PnModal',
-  components: { PnCard },
-  props: {
-    open: {
-      type: Boolean,
-      default: false,
-    },
-  },
+})
+
+withDefaults(defineProps<PnModalProps>(), {
+    open: false,
 })
 </script>
 
 <template>
-  <div class="pn-modal">
+  <div v-if="open" class="pn-modal">
     <div class="pn-overlay" />
     <div class="pn-modal-content">
       <slot name="content">

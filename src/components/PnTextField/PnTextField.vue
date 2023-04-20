@@ -1,42 +1,40 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue'
-import { sizeValidator, statusValidator } from '@/utils/validator.utils'
-</script>
+import { defineComponent, computed } from 'vue'
 
-<script lang="ts">
-export default defineComponent({
+export interface PnTextField {
+  disabled?: boolean;
+  modelValue?: string;
+  placeholder?: string;
+  readonly?: boolean;
+  size?: string;
+  status?: string;
+}
+
+defineComponent({
   name: 'PnTextField',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    readonly: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator: sizeValidator,
-    },
-    status: {
-      type: String,
-      default: 'primary',
-      validator: statusValidator,
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-  },
+})
+
+const emits = defineEmits(['update:modelValue'])
+
+const props = withDefaults(defineProps<PnTextField>(), {
+    disabled: false,
+    modelValue: '',
+    placeholder: undefined,
+    readonly: false,
+    status: 'primary',
+    size: 'medium',
+})
+
+const text = computed({
+  get: (): string => props.modelValue,
+  set: (value: string) => emits('update:modelValue', value),
 })
 </script>
 
 <template>
   <div :class="['input-field', `input-field-${status}`]">
     <slot name="prepend" />
-    <input class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
+    <input v-model="text" class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
     <slot name="append" />
   </div>
 </template>

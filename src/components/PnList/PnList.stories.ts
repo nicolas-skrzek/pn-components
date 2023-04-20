@@ -22,11 +22,13 @@ export default {
         title: 'Not a link',
         disabled: false,
         link: false,
+        value: 3,
       },
       {
         title: 'Item disable',
         disabled: true,
         link: true,
+        value: 4,
       },
     ],
   },

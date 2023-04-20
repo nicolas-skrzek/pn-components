@@ -6,10 +6,14 @@ export default {
   title: 'Ponion Components/Menu',
   component: PnMenu,
   args: {
-    isOpen: false,
+    disabled: false,
+    closeOnClickContent: true,
   },
   argTypes: {
-    isOpen: {
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    closeOnClickContent: {
       control: { type: 'boolean' },
     },
   },
@@ -21,7 +25,6 @@ const Template = (args: any) => ({
     return { args }
   },
   data: () => ({
-    isOpen: false,
     items: [
       {
         title: 'Item 1',
@@ -39,18 +42,20 @@ const Template = (args: any) => ({
         title: 'Not a link',
         disabled: false,
         link: false,
+        value: 3,
       },
       {
         title: 'Item disable',
         disabled: true,
         link: true,
+        value: 4,
       },
     ],
   }),
   template: `
-    <pn-menu>
+    <pn-menu :disabled="args.disabled" :closeOnClickContent="args.closeOnClickContent">
       <template #activator>
-        <pn-button @open="isOpen">open</pn-button>
+        <pn-button>open</pn-button>
       </template>
       <template #content>
         <pn-list :items="items" />
