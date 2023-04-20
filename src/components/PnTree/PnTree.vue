@@ -1,27 +1,24 @@
 <script setup lang="ts">
-import type { PropType } from 'vue'
 import { defineComponent } from 'vue'
-import type { PnTreeNodeType } from '@/components/PnTreeNode/PnTreeNode.type'
-</script>
-<script lang="ts">
+import type { PnTreeNodeProps } from '@/types'
 import PnTreeNode from '@/components/PnTreeNode/PnTreeNode.vue'
 
-export default defineComponent({
+export interface PnTreeProps {
+    data: PnTreeNodeProps[],
+}
+
+defineComponent({
   name: 'PnTree',
-  components: { PnTreeNode },
-  props: {
-    data: {
-      type: Array as PropType<PnTreeNodeType[]>,
-      required: true,
-    },
-  },
 })
+
+defineProps<PnTreeProps>()
+
 </script>
 
 <template>
   <div class="tree">
     <ul class="tree-list">
-      <PnTreeNode v-for="(elem, i) in data" :key="i" :options="elem" />
+      <PnTreeNode v-for="(elem, i) in data" :key="i" :label="elem.label" :children="elem?.children" />
     </ul>
   </div>
 </template>

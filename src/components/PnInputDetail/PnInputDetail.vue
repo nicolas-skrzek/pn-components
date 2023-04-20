@@ -1,28 +1,24 @@
-<script lang="ts">
+<script lang="ts" setup>
 import { defineComponent } from 'vue'
+import type { PnColor } from '@/types'
 
-export default defineComponent({
+export interface PnInputDetailProps {
+  status?: PnColor | undefined;
+  message?: string;
+  counter?: number;
+}
+
+defineComponent({
   name: 'PnInputDetail',
-  props: {
-    status: {
-      type: String,
-      default: '',
-    },
-    message: {
-      type: String,
-      default: '',
-    },
-    counter: {
-      type: Number,
-      default: 0,
-    },
-  },
-  computed: {
-    statusClass() {
-      return this.status ? `text-${this.status}` : ''
-    },
-  },
 })
+
+const props = withDefaults(defineProps<PnInputDetailProps>(), {
+    status: undefined,
+    message: undefined,
+    counter: 0,
+})
+
+const statusClass = (): string => (props.status ? `text-${props.status}` : '')
 </script>
 
 <template>

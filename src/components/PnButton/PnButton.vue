@@ -1,61 +1,40 @@
 <script setup lang="ts">
-import { defineComponent } from 'vue'
-import { sizeValidator, statusValidator } from '../../utils/validator.utils'
-</script>
+import { defineComponent, computed } from 'vue'
+import type { ButtonHTMLAttributes } from 'vue'
+import type { SizeElement, TagetLink, PnColor } from '@/types'
 
-<script lang="ts">
-export default defineComponent({
-  name: 'PnButton',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator: sizeValidator,
-    },
-    status: {
-      type: String,
-      default: 'primary',
-      validator: statusValidator,
-    },
-    href: {
-      type: String,
-      default: '',
-    },
-    target: {
-      type: String,
-      default: '',
-    },
-  },
-  emits: ['click'],
-  computed: {
-    buttonClasses() {
-      return [
-        'btn',
-        `btn-${this.status}`,
-        `size-${this.size}`,
-        {
-          disabled: this.disabled,
-        },
-      ]
-    },
-  },
-  methods: {
-    onClick() {
-      this.$emit('click')
-    },
-  },
+export interface ButtonProps extends ButtonHTMLAttributes {
+  disabled?: boolean;
+  status?: PnColor | undefined;
+  size?: SizeElement;
+  target?: TagetLink | undefined;
+}
+
+defineComponent({ name: 'PnButton' })
+
+const emits = defineEmits(['click'])
+
+const props = withDefaults(defineProps<ButtonProps>(), {
+    disabled: false,
+    status: 'primary',
+    size: 'medium',
+    target: undefined,
 })
+
+const buttonClasses = computed(() => ([
+  'btn',
+  `btn-${props.status}`,
+  `size-${props.size}`,
+  {
+    disabled: props.disabled,
+  },
+]))
+
+const onClick = (): void => emits('click')
 </script>
 
 <template>
-  <a v-if="href" :class="buttonClasses" href="{{href}}" role="button" target="{{target}}" @click="onClick">
-    <slot />
-  </a>
-  <button v-else :class="buttonClasses" type="button" @click="onClick">
+  <button :class="buttonClasses" type="button" @click="onClick">
     <slot />
   </button>
 </template>
