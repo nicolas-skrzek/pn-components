@@ -1,24 +1,24 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import type { PnTreeNodeType } from './PnTreeNode.type'
 
-export default defineComponent({
+export interface PnTreeNodeProps {
+  label: string,
+  children?: PnTreeNodeProps[],
+}
+
+defineComponent({
   name: 'PnTreeNode',
-  props: {
-    options: {
-      type: Object as PropType<PnTreeNodeType>,
-      required: true,
-    },
-  },
 })
+
+defineProps<PnTreeNodeProps>()
+
 </script>
 
 <template>
   <li class="tree-node">
-    <span class="tree-node-label">{{ options.label }}</span>
-    <ul v-if="options.children && options.children.length" class="tree-node-children">
-      <PnTreeNode v-for="(child, i) in options.children" :key="i" :options="child" />
+    <span class="tree-node-label">{{ label }}</span>
+    <ul v-if="children && children.length" class="tree-node-children">
+      <PnTreeNode v-for="(child, i) in children" :key="i" :label="child.label" :children="child?.children" />
     </ul>
   </li>
 </template>

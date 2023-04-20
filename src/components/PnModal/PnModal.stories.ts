@@ -3,6 +3,14 @@ import PnModal from './PnModal.vue'
 export default {
   title: 'Ponion Components/Modal',
   component: PnModal,
+  args: {
+    open: false,
+  },
+  argTypes: {
+    open: {
+      control: { type: 'boolean' },
+    },
+  },
 }
 
 const Template = (args: any) => ({
@@ -27,7 +35,7 @@ const Template = (args: any) => ({
     metus lacus cursus justo, nec sagittis diam lacus in felis. Praesent sagittis, nulla et vulputate 
     sodales, ante massa porta enim, eu congue metus metus consectetur arcu. Sed consequat suscipit dolor,
     quis mollis tellus. Aenean eu urna turpis.</p>
-    <pn-modal>
+    <pn-modal :open="args.open">
       <template #card-title>
         Card title
       </template>
