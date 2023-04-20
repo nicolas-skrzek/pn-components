@@ -1,27 +1,21 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue'
 
-export default defineComponent({
+export interface PnListItemProps {
+  disabled?: boolean;
+  link?: boolean;
+  title?: string | undefined;
+  value: string | number;
+}
+
+defineComponent({
   name: 'PnListItem',
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    link: {
-      type: Boolean,
-      default: true,
-    },
-    title: {
-      type: String,
-      default: null,
-    },
-    value: {
-      type: [String, Number],
-      required: true,
-    },
-  },
-  emits: ['click'],
+})
+
+withDefaults(defineProps<PnListItemProps>(), {
+    disabled: false,
+    link: false,
+    title: undefined,
 })
 </script>
 

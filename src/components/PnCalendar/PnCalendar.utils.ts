@@ -1,9 +1,8 @@
 import { getUnixTime } from 'date-fns'
-// import type { Dates } from '@/utils/dates.utils'
 import { FIRST_DAY_OF_MONTH, OTHER_DAYS } from './PnCalendar.const'
 import type { DayFormated, CalendarEvent } from './PnCalendar.types'
 
-export const buildDay = (dates: any, date: Date, type: string, events: CalendarEvent[], dayOfWeek: number = 0): DayFormated => {
+export const buildDay = (dates: any, date: Date, type: string, events: CalendarEvent[] | undefined, dayOfWeek: number = 0): DayFormated => {
   const eventsOfday = events?.filter((event) => dates.isSame(event.date, date)) || []
 
   if (type === 'previous') {
@@ -36,7 +35,7 @@ export const getDaysInWeek = (
   year: number,
   month: number,
   row: number,
-  events: CalendarEvent[] | any[],
+  events: CalendarEvent[] | any[] | undefined,
 ): DayFormated[] => {
   const prevDays: DayFormated[] = []
   let nextDays: DayFormated[] = []

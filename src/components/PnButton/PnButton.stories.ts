@@ -9,7 +9,6 @@ export default {
     status: 'primary',
     disabled: false,
     size: 'medium',
-    href: undefined,
     target: undefined,
   },
   argTypes: {
@@ -25,9 +24,6 @@ export default {
       options: SIZE,
       control: { type: 'select' },
     },
-    href: {
-      control: { type: 'text' },
-    },
     target: {
       control: { type: 'text' },
     },
@@ -40,7 +36,7 @@ const Template = (args: any) => ({
     return { args }
   },
   template: `
-  <pn-button v-bind="args">test</pn-button>
+  <pn-button v-bind="args">Button</pn-button>
   `,
 })
 

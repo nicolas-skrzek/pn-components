@@ -1,62 +1,31 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
-import type { PropType } from 'vue'
-import { sizeValidator, statusValidator } from '@/utils/validator.utils'
-import type { PnColor } from '@/types/color.type'
-import type { PnListItemType } from '@/components/PnListItem/PnListItem.type'
-</script>
+import type { PnColor, PnListItemProps, SizeElement } from '@/types'
 
-<script lang="ts">
 import PnMenu from '@/components/PnMenu/PnMenu.vue'
 import PnTextField from '@/components/PnTextField/PnTextField.vue'
 import PnCard from '@/components/PnCard/PnCard.vue'
 import PnList from '@/components/PnList/PnList.vue'
 
-export default defineComponent({
+export interface PnSelectPros {
+  disabled?: boolean;
+  items: PnListItemProps[];
+  multiple?: boolean;
+  placeholder?: string;
+  size?: SizeElement;
+  status?: PnColor | undefined;
+}
+
+defineComponent({
   name: 'PnSelect',
-  components: {
-    PnMenu, PnTextField, PnCard, PnList,
-  },
-  props: {
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    multiple: {
-      type: Boolean,
-      default: false,
-    },
-    size: {
-      type: String,
-      default: 'medium',
-      validator: sizeValidator,
-    },
-    status: {
-      type: String as PropType<PnColor>,
-      default: 'primary',
-      validator: statusValidator,
-    },
-    placeholder: {
-      type: String,
-      default: '',
-    },
-    items: {
-      type: Array as PropType<PnListItemType[]>,
-      required: true,
-    },
-  },
-  emits: ['open'],
-  data() {
-    return {
-      open: false,
-    }
-  },
-  methods: {
-    toggleOpen() {
-      this.open = !this.open
-      this.$emit('open', this.open)
-    },
-  },
+})
+
+withDefaults(defineProps<PnSelectPros>(), {
+    disabled: false,
+    multiple: false,
+    placeholder: undefined,
+    status: 'primary',
+    size: 'medium',
 })
 </script>
 
