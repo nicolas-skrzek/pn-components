@@ -12,7 +12,6 @@ module.exports = {
     '@vue/eslint-config-typescript',
     '@vue/airbnb',
     'plugin:json/recommended',
-    'plugin:storybook/recommended',
   ],
   settings: {
     'import/parsers': {
