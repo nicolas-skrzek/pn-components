@@ -3,7 +3,7 @@ import { defineComponent, computed } from 'vue'
 import type { PnColor, SizeElement } from '@/types'
 import PnInputDetail from '@/components/PnInputDetail/PnInputDetail.vue'
 
-export interface PnTextAreaProps {
+export interface IPnTextAreaProps {
   disabled?: boolean;
   displayDetails?: boolean;
   name?: string;
@@ -21,7 +21,7 @@ defineComponent({
 
 const emits = defineEmits(['update:modelValue'])
 
-const props = withDefaults(defineProps<PnTextAreaProps>(), {
+const props = withDefaults(defineProps<IPnTextAreaProps>(), {
     disabled: false,
     displayDetails: false,
     name: undefined,

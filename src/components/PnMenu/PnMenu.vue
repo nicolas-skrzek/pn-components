@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineComponent, ref } from 'vue'
 
-export interface PnMenuProps {
+export interface IPnMenuProps {
   disabled?: boolean;
   closeOnClickContent?: boolean;
 }
@@ -10,7 +10,7 @@ defineComponent({
   name: 'PnMenu',
 })
 
-const props = withDefaults(defineProps<PnMenuProps>(), {
+const props = withDefaults(defineProps<IPnMenuProps>(), {
     disabled: false,
     closeOnClickContent: true,
 })
