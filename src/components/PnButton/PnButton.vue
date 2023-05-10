@@ -3,7 +3,7 @@ import { defineComponent, computed } from 'vue'
 import type { ButtonHTMLAttributes } from 'vue'
 import type { SizeElement, TagetLink, PnColor } from '@/types'
 
-export interface ButtonProps extends ButtonHTMLAttributes {
+export interface IButtonProps extends ButtonHTMLAttributes {
   disabled?: boolean;
   status?: PnColor | undefined;
   size?: SizeElement;
@@ -14,7 +14,7 @@ defineComponent({ name: 'PnButton' })
 
 const emits = defineEmits(['click'])
 
-const props = withDefaults(defineProps<ButtonProps>(), {
+const props = withDefaults(defineProps<IButtonProps>(), {
     disabled: false,
     status: 'primary',
     size: 'medium',

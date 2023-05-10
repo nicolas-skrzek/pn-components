@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
 
-export interface PnListItemProps {
+export interface IPnListItemProps {
   disabled?: boolean;
   link?: boolean;
   title?: string | undefined;
@@ -12,7 +12,7 @@ defineComponent({
   name: 'PnListItem',
 })
 
-withDefaults(defineProps<PnListItemProps>(), {
+withDefaults(defineProps<IPnListItemProps>(), {
     disabled: false,
     link: false,
     title: undefined,

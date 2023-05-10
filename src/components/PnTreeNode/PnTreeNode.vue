@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
 
-export interface PnTreeNodeProps {
+export interface IPnTreeNodeProps {
   label: string,
-  children?: PnTreeNodeProps[],
+  children?: IPnTreeNodeProps[],
 }
 
 defineComponent({
   name: 'PnTreeNode',
 })
 
-defineProps<PnTreeNodeProps>()
+defineProps<IPnTreeNodeProps>()
 
 </script>
 
