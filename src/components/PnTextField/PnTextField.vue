@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { defineComponent, computed } from 'vue'
 
-export interface PnTextField {
+export interface IPnTextField {
   disabled?: boolean;
   modelValue?: string;
   placeholder?: string;
@@ -16,7 +16,7 @@ defineComponent({
 
 const emits = defineEmits(['update:modelValue'])
 
-const props = withDefaults(defineProps<PnTextField>(), {
+const props = withDefaults(defineProps<IPnTextField>(), {
     disabled: false,
     modelValue: '',
     placeholder: undefined,

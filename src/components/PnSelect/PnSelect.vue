@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
-import type { PnColor, PnListItemProps, SizeElement } from '@/types'
+import type { PnColor, IPnListItemProps, SizeElement } from '@/types'
 
 import PnMenu from '@/components/PnMenu/PnMenu.vue'
 import PnTextField from '@/components/PnTextField/PnTextField.vue'
 import PnCard from '@/components/PnCard/PnCard.vue'
 import PnList from '@/components/PnList/PnList.vue'
 
-export interface PnSelectPros {
+export interface IPnSelectPros {
   disabled?: boolean;
-  items: PnListItemProps[];
+  items: IPnListItemProps[];
   multiple?: boolean;
   placeholder?: string;
   size?: SizeElement;
@@ -20,7 +20,7 @@ defineComponent({
   name: 'PnSelect',
 })
 
-withDefaults(defineProps<PnSelectPros>(), {
+withDefaults(defineProps<IPnSelectPros>(), {
     disabled: false,
     multiple: false,
     placeholder: undefined,
