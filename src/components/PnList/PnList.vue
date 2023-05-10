@@ -23,7 +23,7 @@ withDefaults(defineProps<IPnListProps>(), {
     <div class="list-content">
       <slot :items="items">
         <template v-for="(item, i) in items" :key="`item-${i}`">
-          <PnListItem :value="item.value" :link="item.link" :title="item.title" :disabled="item.disabled || disabled" />
+          <PnListItem :link="item.link" :title="item.title" :disabled="item.disabled || disabled" />
         </template>
       </slot>
     </div>

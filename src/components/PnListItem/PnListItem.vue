@@ -5,7 +5,6 @@ export interface IPnListItemProps {
   disabled?: boolean;
   link?: boolean;
   title?: string | undefined;
-  value: string | number;
 }
 
 defineComponent({
