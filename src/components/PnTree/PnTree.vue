@@ -1,17 +1,17 @@
 <script setup lang="ts">
 import { defineComponent } from 'vue'
-import type { PnTreeNodeProps } from '@/types'
+import type { IPnTreeNodeProps } from '@/types'
 import PnTreeNode from '@/components/PnTreeNode/PnTreeNode.vue'
 
-export interface PnTreeProps {
-    data: PnTreeNodeProps[],
+export interface IPnTreeProps {
+    data: IPnTreeNodeProps[],
 }
 
 defineComponent({
   name: 'PnTree',
 })
 
-defineProps<PnTreeProps>()
+defineProps<IPnTreeProps>()
 
 </script>
 

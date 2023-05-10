@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 import type { PnColor } from '@/types'
 
-export interface PnInputDetailProps {
+export interface IPnInputDetailProps {
   status?: PnColor | undefined;
   message?: string;
   counter?: number;
@@ -12,7 +12,7 @@ defineComponent({
   name: 'PnInputDetail',
 })
 
-const props = withDefaults(defineProps<PnInputDetailProps>(), {
+const props = withDefaults(defineProps<IPnInputDetailProps>(), {
     status: undefined,
     message: undefined,
     counter: 0,

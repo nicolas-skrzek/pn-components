@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue'
 import PnCard from '@/components/PnCard/PnCard.vue'
 
-export interface PnModalProps {
+export interface IPnModalProps {
     open?: boolean;
 }
 
@@ -10,7 +10,7 @@ defineComponent({
   name: 'PnModal',
 })
 
-withDefaults(defineProps<PnModalProps>(), {
+withDefaults(defineProps<IPnModalProps>(), {
     open: false,
 })
 </script>

@@ -5,7 +5,7 @@ import { getDaysInWeek } from './PnCalendar.utils'
 import { NUMBER_WEEKS, FIRST_DAY_OF_MONTH } from './PnCalendar.const'
 import type { DayFormated, CalendarEvent } from './PnCalendar.types'
 
-export interface PnCalendarProps {
+export interface IPnCalendarProps {
     isMondayFirst?: boolean;
     date?: any;
     events?: CalendarEvent[] | any[];
@@ -23,7 +23,7 @@ defineComponent({
 
 const emits = defineEmits(['date', 'click:day', 'click:event'])
 
-const props = withDefaults(defineProps<PnCalendarProps>(), {
+const props = withDefaults(defineProps<IPnCalendarProps>(), {
     isMondayFirst: false,
     date: new Date(),
     events: () => [],
