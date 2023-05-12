@@ -38,7 +38,7 @@ const onChangeMode = () => {
     <div class="controls-view" :class="[mode]">
       <slot />
     </div>
-    <div class="controls-list">
+    <div v-if="controls" class="controls-list">
       <div v-if="hasMode" class="controls-input">
         <label for="input_mode">
           Mode
@@ -91,6 +91,7 @@ const onChangeMode = () => {
 <style lang="scss">
 .controls {
   display: flex;
+  flex-direction: column;
   justify-content: stretch;
   width: 100%;
   height: 100%;
@@ -99,13 +100,14 @@ const onChangeMode = () => {
   .controls-view,
   .controls-list  {
     display: flex;
-    flex: 1 1 0;
     justify-content: center;
     padding: 1rem;
   }
 
   .controls-view {
     align-items: center;
+    flex: 1 1 auto;
+
     &.dark {
       background-color: #44403c;
     }
@@ -113,6 +115,9 @@ const onChangeMode = () => {
   .controls-list {
     flex-direction: column;
     gap: 8px;
+    border-top: 1px solid rgba(#292524, 0.3);
+    height: 25%;
+    overflow-y: auto;
 
     .controls-input {
       display: flex;
