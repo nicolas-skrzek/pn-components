@@ -1,6 +1,10 @@
 .pn-table {
   border-collapse: $table-border-collapse;
   width: 100%;
+  
+  &-overlay {
+    overflow: auto;
+  }
 
   .pn-table-cell {
     padding: $table-cell-padding;
