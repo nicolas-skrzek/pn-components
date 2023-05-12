@@ -2,3 +2,5 @@
 . "$(dirname "$0")/_/husky.sh"
 
 # npx --no-install test:unit
+yarn lint
+yarn type-check
