@@ -1,1 +1,2 @@
-export type SizeElement = 'x-small' | 'small' | 'medium' | 'large' | 'x-large'
+export type TPnDensity = 'small' | 'medium' | 'large'
+export type SizeElement = TPnDensity | 'x-small' | 'x-large'
