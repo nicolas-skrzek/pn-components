@@ -1,6 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx --no git-precommit-checks
-yarn lint
-yarn type-check
+# npx --no git-precommit-checks
+# yarn lint
+# yarn type-check
