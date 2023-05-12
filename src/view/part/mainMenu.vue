@@ -45,20 +45,28 @@
 
 <style lang="scss">
 .app-menu {
-  width: 5%;
+  width: 11%;
   padding: 1rem;
   gap: 8px;
+  background-color: #292524;
 
   .menu-divider {
     margin: 1rem 0;
     width: 100%;
     height: 1px;
-    background-color: rgba(#1c1917, 0.3);
+    background-color: rgba(#d6d3d1, 0.3);
   }
 
   a {
     text-decoration: none;
-    color: #292524;
+    color: #d6d3d1;
+    letter-spacing: 1px;
+    line-height: 2;
+    font-size: .85714rem;
+
+    &:hover {
+      color: #fafaf9;
+    }
   }
 }
 </style>
