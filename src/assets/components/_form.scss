@@ -1,5 +1,8 @@
 $input-padding: 16px;
 $input-border-width: 2px;
+$input-color-light: getColor($stone, 50);
+$input-color-dark: getColor($stone, 600);
+$checkbox-size: 1rem;
 
 button, input, select, textarea {
   background-color: transparent;
@@ -51,7 +54,7 @@ button, input, select, textarea {
 
 .light .input-field,
 .input-field {
-  background-color: getColor($stone, 50);
+  background-color: $input-color-light;
 
   &:hover {
     background-color: getColor($stone, 100);
@@ -59,7 +62,7 @@ button, input, select, textarea {
 }
 
 .dark .input-field {
-  background-color: getColor($stone, 600);
+  background-color: $input-color-dark;
 
   &:hover {
     background-color: getColor($stone, 500);
@@ -73,6 +76,88 @@ button, input, select, textarea {
   .input-field {
     input[readonly] {
       cursor: pointer;
+    }
+  }
+}
+
+/**
+ * checkbox
+ */
+.pn-checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  
+  & > input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .pn-checkbox-inner {
+    width: calc($checkbox-size / 2);
+    height: calc($checkbox-size / 2);
+    border-radius: calc($border-radius / 2);
+  }
+  
+  .pn-checkbox-input {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.5rem;
+    border-width: $input-border-width;
+    border-style: solid;
+    border-radius: $border-radius;
+    width: $checkbox-size;
+    height: $checkbox-size;
+  }
+  
+  &.disabled {
+    cursor: not-allowed;
+  }
+  
+  &.light {
+    color: $input-color-dark;
+    
+    .pn-checkbox-input {
+      border-color: $input-color-dark;
+      
+      &.checked {
+        background-color: $input-color-dark;
+      }
+    }
+    
+    .pn-checkbox-inner {
+      background-color: $input-color-light;
+    }
+  }
+  
+  &.dark {
+    color: $input-color-light;
+    
+    .pn-checkbox-input {
+      border-color: $input-color-light;
+      
+      &.checked {
+        background-color: $input-color-light;
+      }
+    }
+    
+    .pn-checkbox-inner {
+      background-color: $input-color-dark;
+    }
+  }
+  
+  &.light.disabled,
+  &.dark.disabled {
+    color: getColor($stone, 400);
+    
+    .pn-checkbox-input {
+      border-color: getColor($stone, 400);
+      
+      &.checked {
+        background-color: getColor($stone, 400);
+      }
     }
   }
 }
