@@ -7,6 +7,7 @@ import PnList from '@/view/components/PnList.vue'
 import PnMenu from '@/view/components/PnMenu.vue'
 import PnModal from '@/view/components/PnModal.vue'
 import PnSelect from '@/view/components/PnSelect.vue'
+import PnSwitch from '@/view/components/PnSwitch.vue'
 import PnTable from '@/view/components/PnTable.vue'
 import PnTextArea from '@/view/components/PnTextArea.vue'
 import PnTextField from '@/view/components/PnTextField.vue'
@@ -58,6 +59,11 @@ const routes = [
         path: ROUTES.select.path,
         name: ROUTES.select.name,
         component: PnSelect,
+      },
+      {
+        path: ROUTES.switch.path,
+        name: ROUTES.switch.name,
+        component: PnSwitch,
       },
       {
         path: ROUTES.table.path,

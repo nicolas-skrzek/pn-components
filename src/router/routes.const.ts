@@ -44,6 +44,11 @@ export const ROUTES = {
     name: 'select',
     path: 'select',
   },
+  switch: {
+    label: 'Switch',
+    name: 'switch',
+    path: 'switch',
+  },
   table: {
     label: 'Table',
     name: 'table',
