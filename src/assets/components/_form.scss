@@ -114,6 +114,7 @@ button, input, select, textarea {
   
   &.disabled {
     cursor: not-allowed;
+    opacity: $disabled-opacity;
   }
   
   &.light {
@@ -145,19 +146,6 @@ button, input, select, textarea {
     
     .pn-checkbox-inner {
       background-color: $input-color-dark;
-    }
-  }
-  
-  &.light.disabled,
-  &.dark.disabled {
-    color: getColor($stone, 400);
-    
-    .pn-checkbox-input {
-      border-color: getColor($stone, 400);
-      
-      &.checked {
-        background-color: getColor($stone, 400);
-      }
     }
   }
 }
