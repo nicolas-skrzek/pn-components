@@ -31,6 +31,9 @@
     <router-link :to="{ name: ROUTES.select.name }">
       {{ ROUTES.select.label }}
     </router-link>
+    <router-link :to="{ name: ROUTES.switch.name }">
+      {{ ROUTES.switch.label }}
+    </router-link>
     <router-link :to="{ name: ROUTES.table.name }">
       {{ ROUTES.table.label }}
     </router-link>
