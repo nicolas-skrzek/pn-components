@@ -13,3 +13,7 @@
     }
   }
 }
+
+@mixin transition-transform () {
+  transition: .15s transform cubic-bezier(.4, 0, .2,1);
+}
