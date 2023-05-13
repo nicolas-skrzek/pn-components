@@ -1,21 +1,24 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
+import type { PnMode } from '@/types'
 
 interface IControls {
-  type: string;
   label: string;
-  value?: any;
   options?: number[] | string[]
+  type: string;
+  value?: any;
 }
 
 interface IProps {
   controls?: IControls[];
   hasMode?: boolean;
+  mode?: PnMode;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
     controls: undefined,
     disabled: false,
+    mode: 'light',
 })
 
 const emit = defineEmits(['update:controls', 'update:mode'])
@@ -26,16 +29,17 @@ const internalControls = computed({
       emit('update:controls', value)
     },
 })
-
-const mode = ref('light')
-
-const onChangeMode = () => {
-  emit('update:mode', mode)
-}
+const internalMode = computed({
+    get: () => props.mode,
+    set: (value: PnMode) => {
+      emit('update:mode', value)
+    },
+})
 </script>
+
 <template>
   <div class="controls">
-    <div class="controls-view" :class="[mode]">
+    <div class="controls-view" :class="[internalMode]">
       <slot />
     </div>
     <div v-if="controls" class="controls-list">
@@ -43,7 +47,7 @@ const onChangeMode = () => {
         <label for="input_mode">
           Mode
         </label>
-        <select v-model="mode" name="input_mode" @change="onChangeMode()">
+        <select v-model="internalMode" name="input_mode">
           <option value="light">
             Light
           </option>
@@ -109,13 +113,13 @@ const onChangeMode = () => {
     flex: 1 1 auto;
 
     &.dark {
-      background-color: #44403c;
+      background-color: var(--pn-color-stone-800);
     }
   }
   .controls-list {
     flex-direction: column;
     gap: 8px;
-    border-top: 1px solid rgba(#292524, 0.3);
+    border-top: 1px solid var(--pn-color-stone-400);
     height: 25%;
     overflow-y: auto;
 

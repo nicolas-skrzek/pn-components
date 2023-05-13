@@ -16,6 +16,9 @@
     <router-link :to="{ name: ROUTES.card.name }">
       {{ ROUTES.card.label }}
     </router-link>
+    <router-link :to="{ name: ROUTES.checkbox.name }">
+      {{ ROUTES.checkbox.label }}
+    </router-link>
     <router-link :to="{ name: ROUTES.list.name }">
       {{ ROUTES.list.label }}
     </router-link>

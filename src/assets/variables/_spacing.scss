@@ -1,0 +1,18 @@
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+
+$spacing-sides: (
+  a: all,
+  l: left,
+  t: top,
+  r: right,
+  b: bottom
+);
+$spacing-small-step: 0.5;
+$spacing-small-step-start: 0;
+$spacing-small-step-end: 4;
+$spacing-large-step-start: 4;
+$spacing-large-step-end: 24;
+$spacing-difference: 0.25rem;
