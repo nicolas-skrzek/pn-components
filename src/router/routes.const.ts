@@ -19,6 +19,11 @@ export const ROUTES = {
     name: 'card',
     path: 'card',
   },
+  checkbox: {
+    label: 'Checkbox',
+    name: 'checkbox',
+    path: 'checkbox',
+  },
   list: {
     label: 'List',
     name: 'list',
