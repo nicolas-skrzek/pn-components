@@ -1,0 +1,23 @@
+@each $abrt, $type in $spacing-types {
+  @each $abrs, $side in $spacing-sides {
+    @for $i from $spacing-small-step-start through $spacing-small-step-end {
+      .#{$abrt}#{$abrs}-#{calc($i - 1)} {
+        @if $side == all {
+          #{$type}: calc(($i - $spacing-small-step) * $spacing-difference);
+        } @else {
+          #{$type}-#{$side}: calc(($i - $spacing-small-step) * $spacing-difference);
+        }
+      }
+    }
+    
+    @for $i from $spacing-large-step-start through $spacing-large-step-end {
+      .#{$abrt}#{$abrs}-#{$i} {
+        @if $side == all {
+          #{$type}: calc($i * $spacing-difference);
+        } @else {
+          #{$type}-#{$side}: calc($i * $spacing-difference);
+        }
+      }
+    }
+  }
+}
