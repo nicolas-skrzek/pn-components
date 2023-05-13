@@ -9,7 +9,7 @@ export interface IPnTextField {
 }
 
 defineComponent({
-  name: 'PnTextField',
+  name: 'PnCheckbox',
 })
 
 const emits = defineEmits(['update:modelValue'])
@@ -33,9 +33,9 @@ const toggoleCheck = () => {
 </script>
 
 <template>
-  <label class="pn-checkbox" tabindex="0" :class="[mode, { disabled }]" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
+  <label class="pn-checkbox" :class="[mode, { disabled }]">
     <input type="checkbox" tabindex="-1" :disabled="disabled" :checked="checked" @change="toggoleCheck()" />
-    <div class="pn-checkbox-input" :class="{ checked }">
+    <div class="pn-checkbox-input" tabindex="0" :class="{ checked }" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
       <div v-show="checked" class="pn-checkbox-inner" />
     </div>
     <span class="pn-checkbox-label">
