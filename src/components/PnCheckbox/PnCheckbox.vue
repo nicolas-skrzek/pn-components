@@ -33,9 +33,9 @@ const toggoleCheck = () => {
 </script>
 
 <template>
-  <label class="pn-checkbox" :class="[mode, { disabled }]">
+  <label class="pn-checkbox" :class="[mode, { disabled }]" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
     <input type="checkbox" tabindex="-1" :disabled="disabled" :checked="checked" @change="toggoleCheck()" />
-    <div class="pn-checkbox-input" tabindex="0" :class="{ checked }" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
+    <div class="pn-checkbox-input" tabindex="0" :class="{ checked }" @keypress.space="toggoleCheck()">
       <div v-show="checked" class="pn-checkbox-inner" />
     </div>
     <span class="pn-checkbox-label">
