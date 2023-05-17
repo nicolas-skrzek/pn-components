@@ -70,6 +70,14 @@ button, input, select, textarea {
 }
 
 /**
+ * text area
+ */
+.pn-text-area {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/**
  * select
  */
 .pn-select {
