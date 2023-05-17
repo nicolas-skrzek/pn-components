@@ -18,7 +18,7 @@ button, input, select, textarea {
   border-bottom-width: $input-border-width;
   border-bottom-style: solid;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-  @include status-color('border-bottom-color', $input-color-status, 'border-color', true);
+  @include status-color('border-bottom-color', true);
 
   input[readonly] {
     cursor: default;
