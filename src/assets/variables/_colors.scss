@@ -199,4 +199,34 @@ $colors: (
   purple: $purple,
   pink: $pink,
   rose: $rose
-)
+);
+
+$color-status: (
+  primary: (
+    color: getColor($blue, 500),
+    color-hover: getColor($blue, 600),
+  ),
+  secondary: (
+    color: getColor($gray, 500),
+    color-hover: getColor($gray, 600),
+  ),
+  success: (
+    color: getColor($green, 500),
+    color-hover: getColor($green, 600),
+  ),
+  warning: (
+    color: getColor($yellow, 500),
+    color-hover: getColor($yellow, 600),
+  ),
+  danger: (
+    color: getColor($red, 400),
+    color-hover: getColor($red, 500),
+  ),
+  info: (
+    color: getColor($sky, 500),
+    color-hover: getColor($sky, 600),
+  )
+);
+
+$color-status-text: getColor($gray, 50);
+$color-status-text-hover: getColor($gray, 100);

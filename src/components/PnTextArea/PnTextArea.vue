@@ -42,7 +42,7 @@ const text = computed({
 </script>
 
 <template>
-  <div :class="['input-field', `input-field-${status}`]">
+  <div class="input-field" :class="[status]">
     <textarea v-model="text" class="form-input" :placeholder="placeholder" :name="name" :rows="rows" />
   </div>
   <pn-input-detail v-if="displayDetails" :counter="counter" />
