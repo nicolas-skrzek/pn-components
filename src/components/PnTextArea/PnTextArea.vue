@@ -42,8 +42,10 @@ const text = computed({
 </script>
 
 <template>
-  <div class="input-field" :class="[status]">
-    <textarea v-model="text" class="form-input" :placeholder="placeholder" :name="name" :rows="rows" />
+  <div class="pn-text-area">
+    <div class="input-field" :class="[status]">
+      <textarea v-model="text" class="form-input" :placeholder="placeholder" :name="name" :rows="rows" />
+    </div>
+    <pn-input-detail v-if="displayDetails" :counter="counter" />
   </div>
-  <pn-input-detail v-if="displayDetails" :counter="counter" />
 </template>
