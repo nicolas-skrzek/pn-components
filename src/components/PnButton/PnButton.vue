@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent } from 'vue'
 import type { ButtonHTMLAttributes } from 'vue'
 import type { SizeElement, TagetLink, PnColor } from '@/types'
 
@@ -14,27 +14,18 @@ defineComponent({ name: 'PnButton' })
 
 const emits = defineEmits(['click'])
 
-const props = withDefaults(defineProps<IButtonProps>(), {
+withDefaults(defineProps<IButtonProps>(), {
     disabled: false,
     status: 'primary',
     size: 'medium',
     target: undefined,
 })
 
-const buttonClasses = computed(() => ([
-  'btn',
-  `btn-${props.status}`,
-  `size-${props.size}`,
-  {
-    disabled: props.disabled,
-  },
-]))
-
 const onClick = (): void => emits('click')
 </script>
 
 <template>
-  <button :class="buttonClasses" type="button" @click="onClick">
+  <button class="btn" :class="[status, size, { disabled }]" type="button" @click="onClick">
     <slot />
   </button>
 </template>

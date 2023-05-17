@@ -32,7 +32,7 @@ const text = computed({
 </script>
 
 <template>
-  <div :class="['input-field', `input-field-${status}`]">
+  <div class="input-field" :class="[status]">
     <slot name="prepend" />
     <input v-model="text" class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
     <slot name="append" />
