@@ -12,7 +12,7 @@
 </script>
 
 <template>
-  <controls-view v-model:controls="props" v-model:mode="mode" has-mode>
+  <controls-view v-model:controls="props">
     <pn-icon
       :size="(props[0].value as any)"
       :type="(props[1].value as any)"
