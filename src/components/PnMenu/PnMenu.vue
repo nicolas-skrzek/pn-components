@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { defineComponent, ref } from 'vue'
+import { computed, defineComponent } from 'vue'
 
 export interface IPnMenuProps {
   disabled?: boolean;
   closeOnClickContent?: boolean;
+  modelValue: boolean;
 }
 
 defineComponent({
@@ -13,16 +14,19 @@ defineComponent({
 const props = withDefaults(defineProps<IPnMenuProps>(), {
   disabled: false,
   closeOnClickContent: true,
+  modelValue: false,
 })
 
-const emits = defineEmits(['open'])
+const emits = defineEmits(['update:modelValue'])
 
-const open = ref(false)
+const open = computed({
+  get: () => props.modelValue,
+  set: (value: boolean) => emits('update:modelValue', value),
+})
 
 const toggleOpen = (): void => {
   if (!props.disabled) {
     open.value = !open.value
-    emits('open', open)
   }
 }
 

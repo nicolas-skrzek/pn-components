@@ -1,6 +1,6 @@
 $input-padding: 16px;
 $input-border-width: 2px;
-$input-color-light: getColor($stone, 50);
+$input-color-light: getColor($stone, 100);
 $input-color-dark: getColor($stone, 600);
 $checkbox-size: 1rem;
 
@@ -18,6 +18,7 @@ button, input, select, textarea {
   border-bottom-width: $input-border-width;
   border-bottom-style: solid;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  padding: 0.25rem 0.5rem;
   @include status-color('border-bottom-color', true);
 
   input[readonly] {
@@ -35,9 +36,8 @@ button, input, select, textarea {
 .form-input {
   display: flex;
   flex-wrap: wrap;
-  min-height: 23px;
-  padding-inline-start: $input-padding;
-  padding-inline-end: $input-padding;
+  flex-grow: 1;
+  align-items: center;
   width: 100%;
   appearance: none;
 }
@@ -57,7 +57,7 @@ button, input, select, textarea {
   background-color: $input-color-light;
 
   &:hover {
-    background-color: getColor($stone, 100);
+    background-color: getColor($stone, 200);
   }
 }
 
@@ -84,6 +84,35 @@ button, input, select, textarea {
   .input-field {
     input[readonly] {
       cursor: pointer;
+    }
+  }
+  
+  .pn-menu .pn-menu-content {
+    top: 30px;
+    left: 0;
+    min-width: 100%;
+    z-index: 999;
+  }
+  
+  .pn-card .pn-card-content {
+    padding: 0.125rem;
+  }
+  
+  .pn-select-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 0.5rem;
+  }
+  
+  &:not(&.disabled) {
+    .input-field {
+      cursor: pointer;
+    }
+  }
+  &.disabled {
+    .input-field {
+      cursor: not-allowed;
     }
   }
 }

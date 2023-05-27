@@ -7,27 +7,19 @@ import { SIZE } from '@/const/size.const'
 
 const items = ref([
   {
-    title: 'Item 1',
-    disabled: false,
-    link: true,
+    label: 'Item 1',
     value: 1,
   },
   {
-    title: 'Item 2',
-    disabled: false,
-    link: true,
+    label: 'Item 2',
     value: 2,
   },
   {
-    title: 'Not a link',
-    disabled: false,
-    link: false,
+    label: 'Not a link',
     value: 3,
   },
   {
-    title: 'Item disable',
-    disabled: true,
-    link: true,
+    label: 'Item disable',
     value: 4,
   },
 ])
@@ -42,18 +34,23 @@ const props = ref([
     label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
   },
 ])
+
+const selectedOpt = ref(2)
 </script>
 <template>
   <controls-view
     v-model:controls="props"
   >
-    <pn-select
-      :items="items"
-      :disabled="(props[0].value as any)"
-      :multiple="(props[1].value as any)"
-      :placeholder="(props[2].value as any)"
-      :size="(props[3].value as any)"
-      :status="(props[4].value as any)"
-    />
+    <div class="flex flex-grow">
+      <pn-select
+        v-model="selectedOpt"
+        :items="items"
+        :disabled="(props[0].value as any)"
+        :multiple="(props[1].value as any)"
+        :placeholder="(props[2].value as any)"
+        :size="(props[3].value as any)"
+        :status="(props[4].value as any)"
+      />
+    </div>
   </controls-view>
 </template>

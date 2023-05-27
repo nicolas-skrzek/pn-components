@@ -1,5 +1,3 @@
-import '@/assets/main.scss'
-// comp
 export { default as PnButton } from '@/components/PnButton/PnButton.vue'
 export { default as PnCalendar } from '@/components/PnCalendar/PnCalendar.vue'
 export { default as PnCard } from '@/components/PnCard/PnCard.vue'
