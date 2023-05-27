@@ -13,7 +13,7 @@ defineComponent({
 })
 
 withDefaults(defineProps<IPnListProps>(), {
-    disabled: false,
+  disabled: false,
 })
 </script>
 

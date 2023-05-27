@@ -1,25 +1,25 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnTextField from '@/components/PnTextField/PnTextField.vue'
-  import ControlsView from '@/view/controlsView.vue'
-  import { COLOR_STATUS } from '@/const/colors.const'
-  import { SIZE } from '@/const/size.const'
+import { ref } from 'vue'
+import { PnTextField } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
+import { COLOR_STATUS } from '@/const/colors.const'
+import { SIZE } from '@/const/size.const'
 
-  const props = ref([
-    { label: 'prepend', type: 'boolean', value: false },
-    { label: 'append', type: 'boolean', value: false },
-    { label: 'disabled', type: 'boolean', value: false },
-    { label: 'placeholder', type: 'text', value: 'Write somesing' },
-    { label: 'readonly', type: 'boolean', value: false },
-    {
-     label: 'size', type: 'select', options: SIZE, value: 'medium',
-    },
-    {
-     label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-    },
-  ])
+const props = ref([
+  { label: 'prepend', type: 'boolean', value: false },
+  { label: 'append', type: 'boolean', value: false },
+  { label: 'disabled', type: 'boolean', value: false },
+  { label: 'placeholder', type: 'text', value: 'Write somesing' },
+  { label: 'readonly', type: 'boolean', value: false },
+  {
+    label: 'size', type: 'select', options: SIZE, value: 'medium',
+  },
+  {
+    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
+  },
+])
 
-  const text = ref('')
+const text = ref('')
 </script>
 
 <template>

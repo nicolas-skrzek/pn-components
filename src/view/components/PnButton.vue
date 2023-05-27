@@ -1,19 +1,19 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnButton from '@/components/PnButton/PnButton.vue'
-  import ControlsView from '@/view/controlsView.vue'
-  import { COLOR_STATUS } from '@/const/colors.const'
-  import { SIZE } from '@/const/size.const'
+import { ref } from 'vue'
+import { PnButton } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
+import { COLOR_STATUS } from '@/const/colors.const'
+import { SIZE } from '@/const/size.const'
 
-  const props = ref([
-    { label: 'disabled', type: 'boolean', value: false },
-    {
-     label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-    },
-    {
-     label: 'size', type: 'select', options: SIZE, value: 'medium',
-    },
-  ])
+const props = ref([
+  { label: 'disabled', type: 'boolean', value: false },
+  {
+    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
+  },
+  {
+    label: 'size', type: 'select', options: SIZE, value: 'medium',
+  },
+])
 </script>
 
 <template>

@@ -1,25 +1,25 @@
 <script setup lang="ts">
-  import { computed } from 'vue'
-  import type { TPnDensity } from '@/types'
-  import { getKeysOfArrayObject } from '@/utils/common.utils'
+import { computed } from 'vue'
+import type { TPnDensity } from '@/types'
+import { getKeysOfArrayObject } from '@/utils/common.utils'
 
-  export interface IPnTable {
+export interface IPnTable {
     bordered?: boolean;
     density?: TPnDensity;
     headerFixed?: boolean;
     items: any[];
   }
 
-  const props = withDefaults(defineProps<IPnTable>(), {
-    bordered: false,
-    density: 'medium',
-    headerFixed: false,
-  })
-  const getValue = (array: any[]) => array.map((item) => Object.values(item))
+const props = withDefaults(defineProps<IPnTable>(), {
+  bordered: false,
+  density: 'medium',
+  headerFixed: false,
+})
+const getValue = (array: any[]) => array.map((item) => Object.values(item))
 
-  const headerItems = computed(() => getKeysOfArrayObject(props.items))
+const headerItems = computed(() => getKeysOfArrayObject(props.items))
 
-  const internalItems = computed(() => getValue(props.items))
+const internalItems = computed(() => getValue(props.items))
 </script>
 
 <template>

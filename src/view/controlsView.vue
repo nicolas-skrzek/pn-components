@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { PnCheckbox } from '@/components'
 import type { PnMode } from '@/types'
 
 interface IControls {
@@ -16,24 +17,24 @@ interface IProps {
 }
 
 const props = withDefaults(defineProps<IProps>(), {
-    controls: undefined,
-    disabled: false,
-    mode: 'light',
+  controls: undefined,
+  disabled: false,
+  mode: 'light',
 })
 
 const emit = defineEmits(['update:controls', 'update:mode'])
 
 const internalControls = computed({
-    get: () => props.controls,
-    set: (value: any) => {
-      emit('update:controls', value)
-    },
+  get: () => props.controls,
+  set: (value: any) => {
+    emit('update:controls', value)
+  },
 })
 const internalMode = computed({
-    get: () => props.mode,
-    set: (value: PnMode) => {
-      emit('update:mode', value)
-    },
+  get: () => props.mode,
+  set: (value: PnMode) => {
+    emit('update:mode', value)
+  },
 })
 </script>
 
@@ -67,7 +68,8 @@ const internalMode = computed({
           <label :for="`input_${i}`">
             {{ control.label }}
           </label>
-          <input v-model="control.value" type="checkbox" :name="`input_${i}`">
+          <!-- <input v-model="control.value" type="checkbox" :name="`input_${i}`"> -->
+          <pn-checkbox v-model="control.value" :name="`input_${i}`" />
         </div>
         <div v-if="control.type === 'number'" class="controls-input">
           <label :for="`input_${i}`">
