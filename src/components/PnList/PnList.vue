@@ -21,9 +21,9 @@ withDefaults(defineProps<IPnListProps>(), {
   <div class="list">
     <slot class="list-header" name="header" />
     <div class="list-content">
-      <slot :items="items">
+      <slot>
         <template v-for="(item, i) in items" :key="`item-${i}`">
-          <PnListItem :link="item.link" :title="item.title" :disabled="item.disabled || disabled" />
+          <pn-list-item :link="item.link" :title="item.title" :selected="item.selected" :disabled="item.disabled || disabled" />
         </template>
       </slot>
     </div>

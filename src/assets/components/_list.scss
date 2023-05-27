@@ -14,15 +14,19 @@
     grid-template-columns: max-content auto max-content;
     background-color: getColor($stone, 50);
 
-    &-link {
+    &.link {
       cursor: pointer;
 
       &:hover {
         background-color: getColor($stone, 200);
       }
     }
+    
+    &.selected {
+      background-color: getColor($stone, 200);
+    }
 
-    &-disabled {
+    &.disabled {
       cursor: not-allowed;
       color: getColor($stone, 400);
 
