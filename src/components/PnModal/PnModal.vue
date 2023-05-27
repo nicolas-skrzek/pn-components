@@ -14,9 +14,9 @@ defineComponent({
 })
 
 const props = withDefaults(defineProps<IPnModalProps>(), {
-    open: false,
-    hideClose: false,
-    size: 'medium',
+  open: false,
+  hideClose: false,
+  size: 'medium',
 })
 
 const emits = defineEmits(['update:open'])

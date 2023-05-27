@@ -1,16 +1,16 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnCheckbox from '@/components/PnCheckbox/PnCheckbox.vue'
-  import ControlsView from '@/view/controlsView.vue'
-  import type { PnMode } from '@/types'
+import { ref } from 'vue'
+import { PnCheckbox } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
+import type { PnMode } from '@/types'
 
-  const props = ref([
-    { label: 'disabled', type: 'boolean', value: false },
-    { label: 'intermediate', type: 'boolean', value: false },
-  ])
+const props = ref([
+  { label: 'disabled', type: 'boolean', value: false },
+  { label: 'intermediate', type: 'boolean', value: false },
+])
 
-  const value = ref(false)
-  const mode = ref<PnMode>('light')
+const value = ref(false)
+const mode = ref<PnMode>('light')
 </script>
 
 <template>

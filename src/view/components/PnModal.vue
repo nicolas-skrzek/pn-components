@@ -1,18 +1,17 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnModal from '@/components/PnModal/PnModal.vue'
-  import PnButton from '@/components/PnButton/PnButton.vue'
-  import ControlsView from '@/view/controlsView.vue'
-  import { SIZE } from '@/const/size.const'
+import { ref } from 'vue'
+import { PnModal, PnButton } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
+import { SIZE } from '@/const/size.const'
 
-  const open = ref(false)
+const open = ref(false)
 
-  const props = ref([
-    { label: 'hideClose', type: 'boolean', value: false },
-    {
-     label: 'size', type: 'select', options: SIZE, value: 'medium',
-    },
-  ])
+const props = ref([
+  { label: 'hideClose', type: 'boolean', value: false },
+  {
+    label: 'size', type: 'select', options: SIZE, value: 'medium',
+  },
+])
 </script>
 
 <template>

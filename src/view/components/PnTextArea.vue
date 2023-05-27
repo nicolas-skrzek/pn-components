@@ -1,26 +1,26 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnTextArea from '@/components/PnTextArea/PnTextArea.vue'
-  import ControlsView from '@/view/controlsView.vue'
-  import { COLOR_STATUS } from '@/const/colors.const'
-  import { SIZE } from '@/const/size.const'
+import { ref } from 'vue'
+import { PnTextArea } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
+import { COLOR_STATUS } from '@/const/colors.const'
+import { SIZE } from '@/const/size.const'
 
-  const props = ref([
-    { label: 'disabled', type: 'boolean', value: false },
-    { label: 'displayDetails', type: 'boolean', value: false },
-    { label: 'name', type: 'text', value: 'textarea' },
-    { label: 'noResize', type: 'boolean', value: false },
-    { label: 'placeholder', type: 'text', value: 'Write somesing' },
-    { label: 'rows', type: 'number', value: 10 },
-    {
-     label: 'size', type: 'select', options: SIZE, value: 'medium',
-    },
-    {
-     label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-    },
-  ])
+const props = ref([
+  { label: 'disabled', type: 'boolean', value: false },
+  { label: 'displayDetails', type: 'boolean', value: false },
+  { label: 'name', type: 'text', value: 'textarea' },
+  { label: 'noResize', type: 'boolean', value: false },
+  { label: 'placeholder', type: 'text', value: 'Write somesing' },
+  { label: 'rows', type: 'number', value: 10 },
+  {
+    label: 'size', type: 'select', options: SIZE, value: 'medium',
+  },
+  {
+    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
+  },
+])
 
-  const text = ref('')
+const text = ref('')
 </script>
 
 <template>

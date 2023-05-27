@@ -15,10 +15,10 @@ defineComponent({ name: 'PnButton' })
 const emits = defineEmits(['click'])
 
 withDefaults(defineProps<IButtonProps>(), {
-    disabled: false,
-    status: 'primary',
-    size: 'medium',
-    target: undefined,
+  disabled: false,
+  status: 'primary',
+  size: 'medium',
+  target: undefined,
 })
 
 const onClick = (): void => emits('click')
