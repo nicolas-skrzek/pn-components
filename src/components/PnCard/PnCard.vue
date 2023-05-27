@@ -5,23 +5,23 @@ defineComponent({ name: 'PnCard' })
 </script>
 
 <template>
-  <div class="card">
-    <div class="card-header">
-      <div class="card-header-content">
+  <div class="pn-card">
+    <div class="pn-card-header">
+      <div class="pn-card-header-content">
         <slot name="header">
-          <div class="card-title">
+          <div class="pn-card-title">
             <slot name="title" />
           </div>
-          <div class="card-subtitle">
+          <div class="pn-card-subtitle">
             <slot name="subtitle" />
           </div>
         </slot>
       </div>
-      <div class="pn-card-action">
+      <div class="pn-pn-card-action">
         <slot name="action" />
       </div>
     </div>
-    <div class="card-content">
+    <div class="pn-card-content">
       <slot name="content" />
     </div>
   </div>
