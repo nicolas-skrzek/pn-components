@@ -34,7 +34,9 @@ const text = computed({
 <template>
   <div class="input-field" :class="[status]">
     <slot name="prepend" />
-    <input v-model="text" class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
+    <slot>
+      <input v-model="text" class="form-input" :placeholder="placeholder" type="text" :disabled="disabled" :readonly="readonly" />
+    </slot>
     <slot name="append" />
   </div>
 </template>
