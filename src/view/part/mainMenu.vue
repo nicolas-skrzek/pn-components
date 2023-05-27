@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ROUTES } from '@/router/routes.const'
+import { ROUTES } from '@/router/routes.const'
 </script>
 <template>
   <div class="app-menu flex flex-column">

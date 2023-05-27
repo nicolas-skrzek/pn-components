@@ -22,15 +22,15 @@ defineComponent({
 const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnTextAreaProps>(), {
-    disabled: false,
-    displayDetails: false,
-    name: undefined,
-    noResize: false,
-    placeholder: undefined,
-    rows: 5,
-    status: 'primary',
-    size: 'medium',
-    modelValue: '',
+  disabled: false,
+  displayDetails: false,
+  name: undefined,
+  noResize: false,
+  placeholder: undefined,
+  rows: 5,
+  status: 'primary',
+  size: 'medium',
+  modelValue: '',
 })
 
 const counter = computed(() => props.modelValue.length || 0)

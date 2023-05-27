@@ -1,6 +1,6 @@
 <script setup lang="ts">
-  import PnCard from '@/components/PnCard/PnCard.vue'
-  import ControlsView from '@/view/controlsView.vue'
+import { PnCard } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
 </script>
 
 <template>

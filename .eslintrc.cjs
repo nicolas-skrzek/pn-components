@@ -29,13 +29,6 @@ module.exports = {
       files: ['cypress/e2e/**/*.{cy,spec}.{js,ts,jsx,tsx}'],
       extends: ['plugin:cypress/recommended'],
     },
-    {
-      files: ['*.vue'],
-      rules: {
-        indent: 'off',
-        'import/no-default-export': 'off',
-      },
-    },
   ],
   parserOptions: {
     ecmaVersion: 'latest',
@@ -51,6 +44,7 @@ module.exports = {
       'error',
       'ignorePackages',
       {
+        '': 'never',
         js: 'never',
         jsx: 'never',
         ts: 'never',

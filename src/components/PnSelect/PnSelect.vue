@@ -21,11 +21,11 @@ defineComponent({
 })
 
 withDefaults(defineProps<IPnSelectPros>(), {
-    disabled: false,
-    multiple: false,
-    placeholder: undefined,
-    status: 'primary',
-    size: 'medium',
+  disabled: false,
+  multiple: false,
+  placeholder: undefined,
+  status: 'primary',
+  size: 'medium',
 })
 </script>
 

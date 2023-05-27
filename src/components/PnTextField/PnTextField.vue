@@ -17,12 +17,12 @@ defineComponent({
 const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnTextField>(), {
-    disabled: false,
-    modelValue: '',
-    placeholder: undefined,
-    readonly: false,
-    status: 'primary',
-    size: 'medium',
+  disabled: false,
+  modelValue: '',
+  placeholder: undefined,
+  readonly: false,
+  status: 'primary',
+  size: 'medium',
 })
 
 const text = computed({

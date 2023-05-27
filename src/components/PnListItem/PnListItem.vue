@@ -12,9 +12,9 @@ defineComponent({
 })
 
 withDefaults(defineProps<IPnListItemProps>(), {
-    disabled: false,
-    link: false,
-    title: undefined,
+  disabled: false,
+  link: false,
+  title: undefined,
 })
 </script>
 
