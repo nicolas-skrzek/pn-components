@@ -13,9 +13,9 @@ defineComponent({
 })
 
 const props = withDefaults(defineProps<IPnInputDetailProps>(), {
-    status: undefined,
-    message: undefined,
-    counter: 0,
+  status: undefined,
+  message: undefined,
+  counter: 0,
 })
 
 const statusClass = (): string => (props.status ? `text-${props.status}` : '')

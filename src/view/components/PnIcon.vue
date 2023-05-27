@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-  import PnIcon from '@/components/PnIcon/PnIcon.vue'
-  import ControlsView from '@/view/controlsView.vue'
+import { ref } from 'vue'
+import { PnIcon } from '@/components'
+import ControlsView from '@/view/controlsView.vue'
 
-  const props = ref([
-    { label: 'size', type: 'number', value: 16 },
-    {
- label: 'type', type: 'select', options: ['filled', 'outlined'], value: 'filled',
-},
-  ])
+const props = ref([
+  { label: 'size', type: 'number', value: 16 },
+  {
+    label: 'type', type: 'select', options: ['filled', 'outlined'], value: 'filled',
+  },
+])
 </script>
 
 <template>

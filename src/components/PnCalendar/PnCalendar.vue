@@ -24,10 +24,10 @@ defineComponent({
 const emits = defineEmits(['date', 'click:day', 'click:event'])
 
 const props = withDefaults(defineProps<IPnCalendarProps>(), {
-    isMondayFirst: false,
-    date: new Date(),
-    events: () => [],
-    weekPerMonth: NUMBER_WEEKS,
+  isMondayFirst: false,
+  date: new Date(),
+  events: () => [],
+  weekPerMonth: NUMBER_WEEKS,
 })
 
 const dates = new Dates('', props.isMondayFirst)

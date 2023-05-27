@@ -15,9 +15,9 @@ defineComponent({
 const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnTextField>(), {
-    disabled: false,
-    modelValue: false,
-    mode: 'light',
+  disabled: false,
+  modelValue: false,
+  mode: 'light',
 })
 
 const checked = computed({
@@ -27,7 +27,7 @@ const checked = computed({
 
 const toggoleCheck = () => {
   if (!props.disabled) {
-      checked.value = !checked.value
+    checked.value = !checked.value
   }
 }
 </script>

@@ -11,8 +11,8 @@ defineComponent({
 })
 
 const props = withDefaults(defineProps<IPnMenuProps>(), {
-    disabled: false,
-    closeOnClickContent: true,
+  disabled: false,
+  closeOnClickContent: true,
 })
 
 const emits = defineEmits(['open'])
@@ -28,7 +28,7 @@ const toggleOpen = (): void => {
 
 const eventCloseClickOnContent = (): void => {
   if (props.closeOnClickContent) {
-      toggleOpen()
+    toggleOpen()
   }
 }
 </script>
