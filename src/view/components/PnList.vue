@@ -24,6 +24,10 @@ const items = ref([
     title: 'Not a link',
   },
   {
+    selected: true,
+    title: 'is selected',
+  },
+  {
     disabled: true,
     link: true,
     title: 'Item disable',
