@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PnCheckbox } from '@/components'
+import { PnCheckbox, PnSelect, PnTextField } from '@/components'
 import type { PnMode } from '@/types'
 
 interface IControls {
   label: string;
-  options?: number[] | string[]
+  options?: any[];
   type: string;
   value?: any;
 }
@@ -48,53 +48,41 @@ const internalMode = computed({
         <label for="input_mode">
           Mode
         </label>
-        <select v-model="internalMode" name="input_mode">
-          <option value="light">
-            Light
-          </option>
-          <option value="dark">
-            Dark
-          </option>
-        </select>
+        <pn-select
+          v-model="internalMode"
+          name="input_mode"
+          :items="['light', 'dark']"
+        />
       </div>
       <template v-for="(control, i) in internalControls" :key="i">
-        <div v-if="control.type === 'text'" class="controls-input">
+        <div v-if="control.type === 'text' || control.type === 'number'" class="controls-input">
           <label :for="`input_${i}`">
             {{ control.label }}
           </label>
-          <input v-model="control.value" type="text" :name="`input_${i}`">
+          <pn-text-field v-model="control.value" :name="`input_${i}`" />
         </div>
         <div v-if="control.type === 'boolean'" class="controls-input">
           <label :for="`input_${i}`">
             {{ control.label }}
           </label>
-          <!-- <input v-model="control.value" type="checkbox" :name="`input_${i}`"> -->
           <pn-checkbox v-model="control.value" :name="`input_${i}`" />
         </div>
-        <div v-if="control.type === 'number'" class="controls-input">
+        <div v-if="control.type === 'select' && control?.options?.length" class="controls-input">
           <label :for="`input_${i}`">
             {{ control.label }}
           </label>
-          <input v-model="control.value" type="number" :name="`input_${i}`">
-        </div>
-        <div v-if="control.type === 'select'" class="controls-input">
-          <label :for="`input_${i}`">
-            {{ control.label }}
-          </label>
-          <select v-model="control.value" :name="`input_${i}`">
-            <template v-for="option in control.options" :key="`${i}_key_${option}`">
-              <option :value="option">
-                {{ option }}
-              </option>
-            </template>
-          </select>
+          <pn-select
+            v-model="control.value"
+            :items="control.options"
+            :name="`input_${i}`"
+          />
         </div>
       </template>
     </div>
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .controls {
   display: flex;
   flex-direction: column;
