@@ -3,6 +3,7 @@ import PnButton from '@/view/components/PnButton.vue'
 import PnCalendar from '@/view/components/PnCalendar.vue'
 import PnCard from '@/view/components/PnCard.vue'
 import PnCheckbox from '@/view/components/PnCheckbox.vue'
+import PnIcon from '@/view/components/PnIcon.vue'
 import PnList from '@/view/components/PnList.vue'
 import PnMenu from '@/view/components/PnMenu.vue'
 import PnModal from '@/view/components/PnModal.vue'
@@ -39,6 +40,11 @@ const routes = [
         path: ROUTES.checkbox.path,
         name: ROUTES.checkbox.name,
         component: PnCheckbox,
+      },
+      {
+        path: ROUTES.icon.path,
+        name: ROUTES.icon.name,
+        component: PnIcon,
       },
       {
         path: ROUTES.list.path,
