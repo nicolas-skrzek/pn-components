@@ -5,7 +5,7 @@ import PnListItem from '@/components/PnListItem/PnListItem.vue'
 
 export interface IPnListProps {
   disabled?: boolean;
-  items: IPnListItemProps[];
+  items?: IPnListItemProps[];
 }
 
 defineComponent({
@@ -14,6 +14,7 @@ defineComponent({
 
 withDefaults(defineProps<IPnListProps>(), {
   disabled: false,
+  items: () => [],
 })
 </script>
 
