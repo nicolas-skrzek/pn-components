@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { defineComponent, computed } from 'vue'
+import PnIcon from '@/components/PnIcon/PnIcon.vue'
 import type { PnMode } from '@/types'
 
 export interface IPnTextField {
   disabled?: boolean;
+  intermediate?: boolean;
   modelValue?: boolean;
   mode?: PnMode;
 }
@@ -16,6 +18,7 @@ const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnTextField>(), {
     disabled: false,
+    intermediate: false,
     modelValue: false,
     mode: 'light',
 })
@@ -34,10 +37,10 @@ const toggoleCheck = () => {
 
 <template>
   <label class="pn-checkbox" :class="[mode, { disabled }]" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
-    <input type="checkbox" tabindex="-1" :disabled="disabled" :checked="checked" @change="toggoleCheck()" />
-    <div class="pn-checkbox-input" tabindex="0" :class="{ checked }" @keypress.space="toggoleCheck()">
-      <div v-show="checked" class="pn-checkbox-inner" />
-    </div>
+    <input v-model="checked" type="checkbox" tabindex="-1" :disabled="disabled" @change="toggoleCheck()" />
+    <pn-icon v-if="checked && !intermediate" name="check_box" :size="20" />
+    <pn-icon v-else-if="!checked && intermediate" name="indeterminate_check_box" :size="20" />
+    <pn-icon v-else name="check_box_outline_blank" :size="20" />
     <span class="pn-checkbox-label">
       <slot />
     </span>
