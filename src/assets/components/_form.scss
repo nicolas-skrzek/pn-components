@@ -102,22 +102,8 @@ button, input, select, textarea {
     height: 0;
   }
   
-  .pn-checkbox-inner {
-    width: calc($checkbox-size / 2);
-    height: calc($checkbox-size / 2);
-    border-radius: calc($border-radius / 2);
-  }
-  
-  .pn-checkbox-input {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 0.5rem;
-    border-width: $input-border-width;
-    border-style: solid;
-    border-radius: $border-radius;
-    width: $checkbox-size;
-    height: $checkbox-size;
+  &-label {
+    margin-left: 0.25rem;
   }
   
   &.disabled {
@@ -127,33 +113,9 @@ button, input, select, textarea {
   
   &.light {
     color: $input-color-dark;
-    
-    .pn-checkbox-input {
-      border-color: $input-color-dark;
-      
-      &.checked {
-        background-color: $input-color-dark;
-      }
-    }
-    
-    .pn-checkbox-inner {
-      background-color: $input-color-light;
-    }
   }
   
   &.dark {
     color: $input-color-light;
-    
-    .pn-checkbox-input {
-      border-color: $input-color-light;
-      
-      &.checked {
-        background-color: $input-color-light;
-      }
-    }
-    
-    .pn-checkbox-inner {
-      background-color: $input-color-dark;
-    }
   }
 }
