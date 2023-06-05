@@ -8,7 +8,9 @@ $spacing-sides: (
   l: left,
   t: top,
   r: right,
-  b: bottom
+  b: bottom,
+  x: horizontal,
+  y: vertical
 );
 $spacing-small-step: 0.5;
 $spacing-small-step-start: 0;
