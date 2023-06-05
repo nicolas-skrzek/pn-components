@@ -4,6 +4,12 @@
       .#{$abrt}#{$abrs}-#{calc($i - 1)} {
         @if $side == all {
           #{$type}: calc(($i - $spacing-small-step) * $spacing-difference);
+        } @else if $side == horizontal {
+          #{$type}-left: calc(($i - $spacing-small-step) * $spacing-difference);
+          #{$type}-right: calc(($i - $spacing-small-step) * $spacing-difference);
+        } @else if $side == vertical {
+          #{$type}-top: calc(($i - $spacing-small-step) * $spacing-difference);
+          #{$type}-bottom: calc(($i - $spacing-small-step) * $spacing-difference);
         } @else {
           #{$type}-#{$side}: calc(($i - $spacing-small-step) * $spacing-difference);
         }
@@ -14,6 +20,12 @@
       .#{$abrt}#{$abrs}-#{$i} {
         @if $side == all {
           #{$type}: calc($i * $spacing-difference);
+        } @else if $side == horizontal {
+          #{$type}-left: calc($i * $spacing-difference);
+          #{$type}-right: calc($i * $spacing-difference);
+        } @else if $side == vertical {
+          #{$type}-top: calc($i * $spacing-difference);
+          #{$type}-bottom: calc($i * $spacing-difference);
         } @else {
           #{$type}-#{$side}: calc($i * $spacing-difference);
         }
