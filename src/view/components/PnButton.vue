@@ -19,7 +19,7 @@ const props = ref([
 <template>
   <controls-view v-model:controls="props">
     <pn-button :disabled="(props[0].value as any)" :status="(props[1].value as any)" :size="(props[2].value as any)">
-      <span class="material-icons">info</span>
+      button
     </pn-button>
   </controls-view>
 </template>
