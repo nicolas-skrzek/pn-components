@@ -24,15 +24,15 @@ const open = computed({
   set: (value: boolean) => emits('update:modelValue', value),
 })
 
-const toggleOpen = (): void => {
+const eventOpenContent = (): void => {
   if (!props.disabled) {
-    open.value = !open.value
+    open.value = true
   }
 }
 
-const eventCloseClickOnContent = (): void => {
-  if (props.closeOnClickContent) {
-    toggleOpen()
+const eventCloseContent = (): void => {
+  if (!props.disabled && props.closeOnClickContent) {
+    open.value = false
   }
 }
 </script>
@@ -40,10 +40,12 @@ const eventCloseClickOnContent = (): void => {
 <template>
   <div class="pn-menu">
     <div
+      v-click-outside="() => eventCloseContent()"
       class="pn-menu-activator"
       aria-hidden="true"
-      @click="toggleOpen()"
-      @keyup.enter="toggleOpen()"
+      @click="eventOpenContent()"
+      @keyup.enter="eventOpenContent()"
+      @keyup.esc="eventCloseContent()"
     >
       <slot name="activator" />
     </div>
@@ -51,8 +53,8 @@ const eventCloseClickOnContent = (): void => {
       v-if="open"
       class="pn-menu-content"
       aria-hidden="true"
-      @click="eventCloseClickOnContent()"
-      @keyup.enter="eventCloseClickOnContent()"
+      @click="eventCloseContent()"
+      @keyup.enter="eventCloseContent()"
     >
       <slot name="content" />
     </div>
