@@ -37,22 +37,6 @@ const open = computed({
 const menuActivator: Ref<HTMLElement | null> = ref(null)
 const menuContent: Ref<HTMLElement | null> = ref(null)
 
-const eventCloseContent = (): void => {
-  if (open.value) {
-    open.value = false
-  }
-}
-
-const eventToggleContent = (): void => {
-  if (!open.value && !props.disabled) {
-    open.value = true
-  }
-
-  if (open.value && !props.disabled && props.closeOnClickActivator) {
-    open.value = false
-  }
-}
-
 const clickEvent = (event: MouseEvent) => {
   if (props.disabled) {
     return
@@ -60,10 +44,15 @@ const clickEvent = (event: MouseEvent) => {
 
   const target = event.target as HTMLElement
 
+  if (!open.value && !props.disabled && menuActivator?.value.contains(target)) {
+    open.value = true
+  }
+
   if (
     open.value
     && (
       (props.closeOnClickContent && (menuContent?.value?.contains(target) && !menuActivator?.value.contains(target)))
+      || (props.closeOnClickActivator && (!menuContent?.value?.contains(target) && menuActivator?.value.contains(target)))
       || (!menuContent?.value?.contains(target) && !menuActivator?.value.contains(target))
     )
   ) {
@@ -86,7 +75,6 @@ onUnmounted(() => {
       ref="menuActivator"
       class="pn-menu-activator"
       aria-hidden="true"
-      @click="eventToggleContent()"
       @keyup.esc="eventCloseContent()"
     >
       <slot name="activator" />
@@ -96,7 +84,6 @@ onUnmounted(() => {
       ref="menuContent"
       class="pn-menu-content"
       aria-hidden="true"
-      @click="eventCloseContent()"
       @keyup.enter="eventCloseContent()"
     >
       <slot name="content" />
