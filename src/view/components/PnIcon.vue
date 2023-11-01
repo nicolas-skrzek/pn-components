@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnIcon } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 
@@ -12,7 +13,7 @@ const props = ref([
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.icon.label">
     <pn-icon
       :size="(props[0].value as any)"
       :type="(props[1].value as any)"

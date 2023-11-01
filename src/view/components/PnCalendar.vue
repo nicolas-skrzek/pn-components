@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnCalendar } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { NUMBER_WEEKS } from '@/components/PnCalendar/PnCalendar.const'
@@ -39,7 +40,7 @@ const props = ref([
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.calendar.label">
     <pn-calendar :is-monday-first="(props[0].value as any)" :date="(props[1].value as any)" :week-per-month="(props[2].value as any)" :events="events">
       test
     </pn-calendar>
