@@ -10,6 +10,7 @@ import MainMenu from '@/view/part/mainMenu.vue'
 </template>
 
 <style lang="scss">
+@import "./assets/main.scss";
 .main {
   width: 100%;
   height: 100%;

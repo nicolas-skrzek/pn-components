@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import { defineComponent, computed, ref } from 'vue'
+import {
+  defineComponent, computed, ref,
+} from 'vue'
+import { selectedOptions, getOptionValue, getOptionLabel } from './PnSelect.utils'
 import type {
-  PnColor, SizeElement,
+  PnColor, PnMode, SizeElement,
 } from '@/types'
 import {
   PnMenu, PnTextField, PnIcon, PnList, PnListItem,
 } from '@/components'
 
 export interface IPnSelectPros {
+  clearable?: boolean;
   disabled?: boolean;
   items: any[];
-  modelValue: any | null;
+  modelValue?: any;
+  mode?: PnMode;
   multiple?: boolean;
   placeholder?: string;
   size?: SizeElement;
@@ -24,7 +29,10 @@ defineComponent({
 const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnSelectPros>(), {
+  clearable: false,
   disabled: false,
+  modelValue: undefined,
+  mode: 'light',
   multiple: false,
   placeholder: undefined,
   status: 'primary',
@@ -36,40 +44,70 @@ const internalValue = computed({
   set: (value: string) => emits('update:modelValue', value),
 })
 
-const getOptionValue = (opt: any) => (typeof opt === 'object' ? opt.value : opt)
+const isEmptyValue = computed(() => {
+  if (props.multiple) {
+    return !internalValue.value?.length
+  }
 
-const getOptionLabel = (opt: any) => (typeof opt === 'object' ? opt.label : opt)
+  return internalValue.value === undefined
+})
 
-const isSelectOption = (opt: any): boolean => internalValue.value === getOptionValue(opt)
+const isClearable = computed(() => (props.clearable && !isEmptyValue.value))
 
-const selectOption = (opt: any) => {
-  if (isSelectOption(opt)) {
-    internalValue.value = ''
-  } else {
-    internalValue.value = getOptionValue(opt)
+const isOpen = ref(false)
+
+const isSelectOption = (opt: any): boolean => {
+  if (Array.isArray(internalValue.value)) {
+    const item = internalValue.value.find((el) => el.value === getOptionValue(opt))
+    return item !== undefined
+  }
+
+  return internalValue.value === getOptionValue(opt)
+}
+
+const unseletOption = (opt: any): void => internalValue.value.filter((item) => getOptionValue(item) !== getOptionValue(opt))
+
+const selectOption = (opt: any): void => {
+  if (props.multiple && !isEmptyValue.value) {
+    internalValue.value = isSelectOption(opt)
+      ? unseletOption(opt)
+      : [...internalValue.value, opt]
+  }
+
+  if (props.multiple && isEmptyValue.value) {
+    internalValue.value = [opt]
+  }
+
+  if (!props.multiple) {
+    internalValue.value = isSelectOption(opt) ? '' : opt
   }
 }
 
-const selectedOption = computed(() => props.items.filter((item) => getOptionValue(item) === internalValue.value).reduce((acc, opt) => {
-  acc.push(getOptionLabel(opt))
-  return acc
-}, []))
+const options = computed(() => selectedOptions(internalValue.value, props.multiple))
 
-const isOpen = ref(false)
+const handleClear = () => {
+  const emptyValue: string | any[] | undefined = Array.isArray(internalValue.value) ? [] : undefined
+
+  internalValue.value = emptyValue
+}
 </script>
 
 <template>
-  <div class="pn-select" :class="{ disabled }">
+  <div class="pn-select" :class="[mode, { clearable, disabled, multiple }]">
     <pn-menu v-model="isOpen" :disabled="disabled" :close-on-click-content="!multiple">
       <template #activator>
         <pn-text-field :disabled="disabled" :size="size" :status="status" :placeholder="placeholder" :readonly="!disabled">
-          <div class="form-input">
-            <template v-for="(option, i) in selectedOption" :key="i">
-              <span>{{ option }}</span>
+          <div v-if="options.length" class="form-input">
+            <template v-for="(option, i) in options" :key="i">
+              <span class="pn-select-tag">
+                <span class="pn-select-tag-text">{{ getOptionLabel(option) }}</span>
+                <pn-icon v-if="isClearable && multiple" class="pn-select-tag-remove" name="cancel" @click="selectOption(option)" />
+              </span>
             </template>
           </div>
           <template #append>
             <div class="pn-select-action">
+              <pn-icon v-if="isClearable && !multiple" name="close" @click.prevent.stop="handleClear()" />
               <pn-icon v-if="isOpen" name="expand_less" />
               <pn-icon v-else name="expand_more" />
             </div>
