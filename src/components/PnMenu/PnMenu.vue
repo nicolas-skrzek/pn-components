@@ -37,6 +37,12 @@ const open = computed({
 const menuActivator: Ref<HTMLElement | null> = ref(null)
 const menuContent: Ref<HTMLElement | null> = ref(null)
 
+const eventCloseContent = (): void => {
+  if (open.value) {
+    open.value = false
+  }
+}
+
 const clickEvent = (event: MouseEvent) => {
   if (props.disabled) {
     return
@@ -44,16 +50,16 @@ const clickEvent = (event: MouseEvent) => {
 
   const target = event.target as HTMLElement
 
-  if (!open.value && !props.disabled && menuActivator?.value.contains(target)) {
+  if (!open.value && !props.disabled && menuActivator?.value?.contains(target)) {
     open.value = true
   }
 
   if (
     open.value
     && (
-      (props.closeOnClickContent && (menuContent?.value?.contains(target) && !menuActivator?.value.contains(target)))
-      || (props.closeOnClickActivator && (!menuContent?.value?.contains(target) && menuActivator?.value.contains(target)))
-      || (!menuContent?.value?.contains(target) && !menuActivator?.value.contains(target))
+      (props.closeOnClickContent && (menuContent?.value?.contains(target) && !menuActivator?.value?.contains(target)))
+      || (props.closeOnClickActivator && (!menuContent?.value?.contains(target) && menuActivator?.value?.contains(target)))
+      || (!menuContent?.value?.contains(target) && !menuActivator?.value?.contains(target))
     )
   ) {
     open.value = false
