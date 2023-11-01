@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnTextField } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { COLOR_STATUS } from '@/const/colors.const'
@@ -23,7 +24,7 @@ const text = ref('')
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.textfield.label">
     <pn-text-field
       v-model="text"
       :disabled="(props[2].value as any)"

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnTable } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 
@@ -55,7 +56,7 @@ const props = ref([
 ])
 </script>
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.table.label">
     <pn-table :items="items" :bordered="(props[0].value as any)" :header-fixed="(props[1].value as any)" :density="(props[2].value as any)" />
   </controls-view>
 </template>

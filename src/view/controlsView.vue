@@ -14,12 +14,14 @@ interface IProps {
   controls?: IControls[];
   hasMode?: boolean;
   mode?: PnMode;
+  title?: string;
 }
 
 const props = withDefaults(defineProps<IProps>(), {
   controls: undefined,
   disabled: false,
   mode: 'light',
+  title: '',
 })
 
 const emit = defineEmits(['update:controls', 'update:mode'])
@@ -40,6 +42,9 @@ const internalMode = computed({
 
 <template>
   <div class="controls">
+    <h2 v-if="title" class="pl-4">
+      {{ title }}
+    </h2>
     <div class="controls-view" :class="[internalMode]">
       <slot />
     </div>

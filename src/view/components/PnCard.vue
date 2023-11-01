@@ -1,10 +1,11 @@
 <script setup lang="ts">
+import { ROUTES } from '@/router/routes.const'
 import { PnCard } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 </script>
 
 <template>
-  <controls-view>
+  <controls-view :title="ROUTES.card.label">
     <pn-card>
       <template #title>
         Card title
