@@ -1,8 +1,17 @@
 <script setup lang="ts">
-import { computed, defineComponent } from 'vue'
+import {
+  computed,
+  defineComponent,
+  onBeforeMount,
+  onUnmounted,
+  ref,
+} from 'vue'
+
+import type { Ref } from 'vue'
 
 export interface IPnMenuProps {
   disabled?: boolean;
+  closeOnClickActivator?: boolean;
   closeOnClickContent?: boolean;
   modelValue: boolean;
 }
@@ -13,6 +22,7 @@ defineComponent({
 
 const props = withDefaults(defineProps<IPnMenuProps>(), {
   disabled: false,
+  closeOnClickActivator: true,
   closeOnClickContent: true,
   modelValue: false,
 })
@@ -24,33 +34,66 @@ const open = computed({
   set: (value: boolean) => emits('update:modelValue', value),
 })
 
-const eventOpenContent = (): void => {
-  if (!props.disabled) {
-    open.value = true
-  }
-}
+const menuActivator: Ref<HTMLElement | null> = ref(null)
+const menuContent: Ref<HTMLElement | null> = ref(null)
 
 const eventCloseContent = (): void => {
-  if (!props.disabled && props.closeOnClickContent) {
+  if (open.value) {
     open.value = false
   }
 }
+
+const eventToggleContent = (): void => {
+  if (!open.value && !props.disabled) {
+    open.value = true
+  }
+
+  if (open.value && !props.disabled && props.closeOnClickActivator) {
+    open.value = false
+  }
+}
+
+const clickEvent = (event: MouseEvent) => {
+  if (props.disabled) {
+    return
+  }
+
+  const target = event.target as HTMLElement
+
+  if (
+    open.value
+    && (
+      (props.closeOnClickContent && (menuContent?.value?.contains(target) && !menuActivator?.value.contains(target)))
+      || (!menuContent?.value?.contains(target) && !menuActivator?.value.contains(target))
+    )
+  ) {
+    open.value = false
+  }
+}
+
+onBeforeMount(() => {
+  document.addEventListener('click', clickEvent)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', clickEvent)
+})
 </script>
 
 <template>
   <div class="pn-menu">
     <div
-      v-click-outside="() => eventCloseContent()"
+      ref="menuActivator"
       class="pn-menu-activator"
       aria-hidden="true"
-      @click="eventOpenContent()"
-      @keyup.enter="eventOpenContent()"
+      @click="eventToggleContent()"
       @keyup.esc="eventCloseContent()"
     >
       <slot name="activator" />
     </div>
     <div
       v-if="open"
+      ref="menuContent"
       class="pn-menu-content"
       aria-hidden="true"
       @click="eventCloseContent()"

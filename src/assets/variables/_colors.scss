@@ -67,19 +67,6 @@ $amber: (
   900: #78350f,
 );
 
-$yellow: (
-  50: #FEFCE8,
-  100: #FEF9C3,
-  200: #FEF08A,
-  300: #FDE047,
-  400: #FACC15,
-  500: #EAB308,
-  600: #CA8A04,
-  700: #A16207,
-  800: #854D0E,
-  900: #713F12,
-);
-
 $green: (
   50: #F0FDF4,
   100: #DCFCE7,
@@ -145,32 +132,6 @@ $blue: (
   900: #1e3a8a,
 );
 
-$purple: (
-  50: #FAF5FF,
-  100: #F3E8FF,
-  200: #E9D5FF,
-  300: #D8B4FE,
-  400: #C084FC,
-  500: #A855F7,
-  600: #9333EA,
-  700: #7E22CE,
-  800: #6B21A8,
-  900: #581C87,
-);
-
-$pink: (
-  50: #fdf2f8,
-  100: #fce7f3,
-  200: #fbcfe8,
-  300: #f9a8d4,
-  400: #f472b6,
-  500: #ec4899,
-  600: #db2777,
-  700: #be185d,
-  800: #9d174d,
-  900: #831843,
-);
-
 $rose: (
   50: #fff1f2,
   100: #ffe4e6,
@@ -187,36 +148,33 @@ $rose: (
 $colors: (
   gray: $gray,
   stone: $stone,
-  red: $red,
   orange: $orange,
   amber: $amber,
-  yellow: $yellow,
   green: $green,
   emerald: $emerald,
   cyan: $cyan,
   sky: $sky,
   blue: $blue,
-  purple: $purple,
-  pink: $pink,
+  red: $red,
   rose: $rose
 );
 
 $color-status: (
   primary: (
-    color: getColor($blue, 500),
-    color-hover: getColor($blue, 600),
+    color: getColor($gray, 400),
+    color-hover: getColor($gray, 500),
   ),
   secondary: (
-    color: getColor($gray, 500),
-    color-hover: getColor($gray, 600),
+    color: getColor($gray, 700),
+    color-hover: getColor($gray, 800),
   ),
   success: (
     color: getColor($green, 500),
     color-hover: getColor($green, 600),
   ),
   warning: (
-    color: getColor($yellow, 500),
-    color-hover: getColor($yellow, 600),
+    color: getColor($orange, 200),
+    color-hover: getColor($orange, 300),
   ),
   danger: (
     color: getColor($red, 400),

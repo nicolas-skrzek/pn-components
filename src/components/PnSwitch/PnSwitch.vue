@@ -33,10 +33,10 @@ const toggoleCheck = () => {
 </script>
 
 <template>
-  <label class="pn-switch" :class="[mode, { disabled }]">
+  <label class="pn-switch" :class="[mode, { checked, disabled }]">
     <div class="pn-switch-control" tabindex="0">
       <div class="pn-switch-control-background" />
-      <div class="pn-switch-control-input" :class="{ checked }">
+      <div class="pn-switch-control-input">
         <input type="checkbox" tabindex="-1" :disabled="disabled" :checked="checked" @change="toggoleCheck()" />
         <div class="pn-switch-control-action" />
       </div>
