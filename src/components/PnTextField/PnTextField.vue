@@ -3,7 +3,7 @@ import { defineComponent, computed } from 'vue'
 
 export interface IPnTextField {
   disabled?: boolean;
-  modelValue?: string;
+  modelValue?: string | number;
   placeholder?: string;
   readonly?: boolean;
   size?: string;
