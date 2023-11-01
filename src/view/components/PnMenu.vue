@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnMenu, PnButton, PnList } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 
@@ -35,7 +36,7 @@ const menuValue = ref(undefined)
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.menu.label">
     <pn-menu v-model="menuValue" :disabled="(props[0].value as any)" :close-on-click-activator="(props[1].value as any)" :close-on-click-content="(props[2].value as any)">
       <template #activator>
         <pn-button>

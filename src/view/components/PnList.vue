@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnList } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 
@@ -36,7 +37,7 @@ const items = ref([
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.list.label">
     <pn-list :items="items" :disabled="(props[0].value as any)" />
   </controls-view>
 </template>

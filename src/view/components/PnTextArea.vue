@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnTextArea } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { COLOR_STATUS } from '@/const/colors.const'
@@ -24,7 +25,7 @@ const text = ref('')
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.textarea.label">
     <pn-text-area
       v-model="text"
       :disabled="(props[0].value as any)"
