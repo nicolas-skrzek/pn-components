@@ -2,11 +2,11 @@
   "name": "@nicolas-skrzek/pn-components",
   "author": "Nicolas Skrzek",
   "description": "A Vue components library",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "license": "ISC",
   "private": false,
   "files": [
-      "dist"
+    "dist"
   ],
   "scripts": {
     "dev": "vite",
