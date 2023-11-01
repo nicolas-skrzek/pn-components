@@ -26,7 +26,7 @@ const props = withDefaults(defineProps<IPnTextField>(), {
 })
 
 const text = computed({
-  get: (): string => props.modelValue,
+  get: (): any => props.modelValue,
   set: (value: string) => emits('update:modelValue', value),
 })
 </script>
