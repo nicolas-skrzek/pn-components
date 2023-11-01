@@ -5,6 +5,7 @@ import ControlsView from '@/view/controlsView.vue'
 
 const props = ref([
   { label: 'disabled', type: 'boolean', value: false },
+  { label: 'closeOnClickActivator', type: 'boolean', value: true },
   { label: 'closeOnClickContent', type: 'boolean', value: true },
 ])
 
@@ -35,7 +36,7 @@ const menuValue = ref(undefined)
 
 <template>
   <controls-view v-model:controls="props">
-    <pn-menu v-model="menuValue" :disabled="(props[0].value as any)" :close-on-click-content="(props[1].value as any)">
+    <pn-menu v-model="menuValue" :disabled="(props[0].value as any)" :close-on-click-activator="(props[1].value as any)" :close-on-click-content="(props[2].value as any)">
       <template #activator>
         <pn-button>
           open

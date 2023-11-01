@@ -1,6 +1,6 @@
 $input-padding: 16px;
-$input-border-width: 2px;
-$input-color-light: getColor($stone, 100);
+$input-border-width: 1px;
+$input-color-light: var(--pn-color-stone-100);
 $input-color-dark: getColor($stone, 600);
 $checkbox-size: 1rem;
 
@@ -57,7 +57,7 @@ button, input, select, textarea {
   background-color: $input-color-light;
 
   &:hover {
-    background-color: getColor($stone, 200);
+    background-color: getColor($stone, 200, 0.5);
   }
 }
 
@@ -88,8 +88,6 @@ button, input, select, textarea {
   }
   
   .pn-menu .pn-menu-content {
-    top: 30px;
-    left: 0;
     min-width: 100%;
     z-index: 999;
   }
@@ -105,6 +103,26 @@ button, input, select, textarea {
     padding-left: 0.5rem;
   }
   
+  &.multiple {
+    .pn-select-tag {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0.125rem;
+      padding: 0.125rem 0.75rem;
+      border-radius: 0.143rem;
+    }
+    &.clearable {
+      .pn-select-tag {
+        padding-right: 0.125rem;
+        
+        .pn-select-tag-remove {
+          margin-left: 0.25rem;
+        }
+      }
+    }
+  }
+  
   &:not(&.disabled) {
     .input-field {
       cursor: pointer;
@@ -113,6 +131,21 @@ button, input, select, textarea {
   &.disabled {
     .input-field {
       cursor: not-allowed;
+    }
+  }
+  
+  &.light {
+    &.multiple {
+      .pn-select-tag {
+        background-color: var(--pn-color-stone-200);
+      }
+      
+      .pn-select-tag-remove {
+        color: var(--pn-color-stone-400);
+        &:hover {
+          color: var(--pn-color-stone-500);
+        }
+      }
     }
   }
 }

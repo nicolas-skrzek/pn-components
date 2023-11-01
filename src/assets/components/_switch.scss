@@ -14,12 +14,9 @@ $switch-control-size: 40px;
     align-items: center;
     justify-content: center;
     position: relative;
-    width: $switch-control-size;
-    height: $switch-control-size;
     
     .pn-switch-control-background {
       border-radius: 8px;
-      opacity: .6;
       height: 14px;
       width: 36px;
     }
@@ -30,8 +27,6 @@ $switch-control-size: 40px;
       justify-content: center;
       position: absolute;
       border-radius: 50%;
-      width: $switch-control-size;
-      height: $switch-control-size;
       @include transition-transform;
       transform: translate(-10px);
       
@@ -44,16 +39,18 @@ $switch-control-size: 40px;
         top: 0;
       }
       
-      &.checked {
-        transform: translate(10px);
-      }
-      
       .pn-switch-control-action {
         border-radius: 50%;
         height: calc($switch-control-size / 2);
         width: calc($switch-control-size / 2);
         box-shadow: 0 2px 4px -1px getColor($gray, 900, .2),0 4px 5px 0 getColor($gray, 900, .14),0 1px 10px 0 getColor($gray, 900, .12);
       }
+    }
+  }
+  
+  &.checked {
+    .pn-switch-control-input {
+      transform: translate(10px);
     }
   }
   
@@ -64,50 +61,48 @@ $switch-control-size: 40px;
     }
     
     .pn-switch-label {
-      color: getColor($stone, 600);
+      color:var(--pn-color-gray-600);
     }
     
     .pn-switch-control {
       .pn-switch-control-background {
-        background-color: getColor($stone, 600);
+        background-color: var(--pn-color-gray-400);
       }
       
       .pn-switch-control-input {
         .pn-switch-control-action {
-          color: getColor($stone, 50);
-          background-color: getColor($stone, 50);
+          background-color: var(--pn-color-gray-50);
         }
-        
-        &.checked {
-          .pn-switch-control-action {
-            background-color: getColor($stone, 600);
-          }
-        }
+      }
+    }
+    
+    &.checked {
+      .pn-switch-control-background {
+        background-color: var(--pn-color-blue-500);
       }
     }
   }
   
   &.dark {
     .pn-switch-label {
-      color: getColor($stone, 50);
+      color: var(--pn-color-gray-50);
     }
     
     .pn-switch-control {
       .pn-switch-control-background {
-        background-color: getColor($stone, 50);
+        background-color: var(--pn-color-gray-400);
       }
       
       .pn-switch-control-input {
         .pn-switch-control-action {
-          color: getColor($stone, 600);
-          background-color: getColor($stone, 600);
+          background-color: var(--pn-color-gray-50);
         }
-        
-        &.checked {
-          .pn-switch-control-action {
-            background-color: getColor($stone, 50);
-          }
-        }
+      }
+    }
+    
+    &.checked {
+      .pn-switch-control-background {
+        background-color: var(--pn-color-blue-500);
       }
     }
   }
