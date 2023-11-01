@@ -14,7 +14,7 @@ export interface IPnSelectPros {
   clearable?: boolean;
   disabled?: boolean;
   items: any[];
-  modelValue?: any;
+  modelValue?: any | any[];
   mode?: PnMode;
   multiple?: boolean;
   placeholder?: string;
@@ -40,8 +40,8 @@ const props = withDefaults(defineProps<IPnSelectPros>(), {
 })
 
 const internalValue = computed({
-  get: (): string => props.modelValue,
-  set: (value: string) => emits('update:modelValue', value),
+  get: (): any | any[] => props.modelValue,
+  set: (value: any | any[]) => emits('update:modelValue', value),
 })
 
 const isEmptyValue = computed(() => {
@@ -65,7 +65,7 @@ const isSelectOption = (opt: any): boolean => {
   return internalValue.value === getOptionValue(opt)
 }
 
-const unseletOption = (opt: any): void => internalValue.value.filter((item) => getOptionValue(item) !== getOptionValue(opt))
+const unseletOption = (opt: any): any[] => internalValue.value.filter((item: any) => getOptionValue(item) !== getOptionValue(opt))
 
 const selectOption = (opt: any): void => {
   if (props.multiple && !isEmptyValue.value) {
