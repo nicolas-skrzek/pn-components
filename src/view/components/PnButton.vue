@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnButton } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { COLOR_STATUS } from '@/const/colors.const'
@@ -17,7 +18,7 @@ const props = ref([
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.button.label">
     <pn-button :disabled="(props[0].value as any)" :status="(props[1].value as any)" :size="(props[2].value as any)">
       button
     </pn-button>

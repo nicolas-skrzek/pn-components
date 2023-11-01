@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnSelect } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { COLOR_STATUS } from '@/const/colors.const'
@@ -44,6 +45,7 @@ const mode = ref<PnMode>('light')
   <controls-view
     v-model:controls="props"
     v-model:mode="mode"
+    :title="ROUTES.select.label"
     has-mode
   >
     <pn-select

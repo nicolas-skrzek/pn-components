@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnModal, PnButton } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 import { SIZE } from '@/const/size.const'
@@ -15,7 +16,7 @@ const props = ref([
 </script>
 
 <template>
-  <controls-view v-model:controls="props">
+  <controls-view v-model:controls="props" :title="ROUTES.modal.label">
     <pn-button @click="() => open = !open">
       open
     </pn-button>

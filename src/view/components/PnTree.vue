@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ROUTES } from '@/router/routes.const'
 import { PnTree } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
 
@@ -34,7 +35,7 @@ const list = ref([
 </script>
 
 <template>
-  <controls-view>
+  <controls-view :title="ROUTES.tree.label">
     <pn-tree :data="list" />
   </controls-view>
 </template>
