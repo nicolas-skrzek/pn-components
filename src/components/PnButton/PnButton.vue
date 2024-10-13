@@ -3,7 +3,7 @@ import { defineComponent } from 'vue'
 import type { ButtonHTMLAttributes } from 'vue'
 import type { SizeElement, TagetLink, PnColor } from '@/types'
 
-export interface IButtonProps extends ButtonHTMLAttributes {
+export interface IButtonProps extends /* @vue-ignore */ ButtonHTMLAttributes {
   disabled?: boolean;
   status?: PnColor | undefined;
   size?: SizeElement;
