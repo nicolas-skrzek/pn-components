@@ -44,7 +44,7 @@ const menuValue = ref(undefined)
         </pn-button>
       </template>
       <template #content>
-        <pn-list :items="items" />
+        <pn-list :items="items" class="shadow" />
       </template>
     </pn-menu>
   </controls-view>

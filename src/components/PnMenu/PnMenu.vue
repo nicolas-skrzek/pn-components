@@ -76,7 +76,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="pn-menu">
+  <div class="pn-menu relative flex flex-col justify-center items-center">
     <div
       ref="menuActivator"
       class="pn-menu-activator"
@@ -88,7 +88,7 @@ onUnmounted(() => {
     <div
       v-if="open"
       ref="menuContent"
-      class="pn-menu-content"
+      class="pn-menu-content w-full absolute top-8"
       aria-hidden="true"
       @keyup.enter="eventCloseContent()"
     >
