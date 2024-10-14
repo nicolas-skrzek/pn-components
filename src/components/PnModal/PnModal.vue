@@ -30,13 +30,12 @@ const close = () => {
   intOpen.value = false
 }
 </script>
-
 <template>
-  <div v-if="intOpen" class="pn-modal">
-    <div class="pn-overlay" @click="close()" @keypress.esc="close()" />
-    <div class="pn-modal-content" :class="[size]">
+  <div v-if="intOpen" class="pn-modal flex content-center items-center justify-center fixed top-0 left-0 right-0 bottom-0 z-40">
+    <div class="pn-overlay h-full w-full absolute top-0 left-0 bg-slate-900 opacity-30" @click="close()" @keypress.esc="close()" />
+    <div class="pn-modal-content absolute mx-auto" :class="{'w-1/4': size === 'small', 'w-2/4': size === 'medium', 'w-3/4': size === 'large'}">
       <slot name="content">
-        <pn-card>
+        <pn-card class="overflow-y-auto">
           <template #title>
             <slot name="card-title" />
           </template>

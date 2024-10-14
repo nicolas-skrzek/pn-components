@@ -41,99 +41,42 @@ const internalMode = computed({
 </script>
 
 <template>
-  <div class="controls">
-    <h2 v-if="title" class="pl-4">
+  <div class="flex flex-col flex-1 justify-stretch w-full h-full">
+    <h2 v-if="title" class="text-3xl font-semibold p-4">
       {{ title }}
     </h2>
-    <div class="controls-view" :class="[internalMode]">
+    <div class="flex flex-auto items-center justify-center p-4 dark:bg-stone-800" :class="[internalMode]">
       <slot />
     </div>
-    <div v-if="controls" class="controls-list">
-      <div v-if="hasMode" class="controls-input">
-        <label for="input_mode">
-          Mode
-        </label>
+    <div v-if="controls" class="flex flex-col gap-2 p-4 h-1/4 overflow-y-auto border border-solid border-stone-400">
+      <label v-if="hasMode" class="flex w-full">
+        <span>Mode</span>
         <pn-select
           v-model="internalMode"
+          class="w-1/4"
           name="input_mode"
           :items="['light', 'dark']"
         />
-      </div>
+      </label>
       <template v-for="(control, i) in internalControls" :key="i">
-        <div v-if="control.type === 'text' || control.type === 'number'" class="controls-input">
-          <label :for="`input_${i}`">
-            {{ control.label }}
-          </label>
+        <label v-if="control.type === 'text' || control.type === 'number'" class="grid grid-cols-2 items-center justify-start w-full">
+          <span>{{ control.label }}</span>
           <pn-text-field v-model="control.value" :name="`input_${i}`" />
-        </div>
-        <div v-if="control.type === 'boolean'" class="controls-input">
-          <label :for="`input_${i}`">
-            {{ control.label }}
-          </label>
+        </label>
+        <label v-if="control.type === 'boolean'" class="grid grid-cols-2 items-center justify-start w-full">
+          <span>{{ control.label }}</span>
           <pn-checkbox v-model="control.value" :name="`input_${i}`" />
-        </div>
-        <div v-if="control.type === 'select' && control?.options?.length" class="controls-input">
-          <label :for="`input_${i}`">
-            {{ control.label }}
-          </label>
+        </label>
+        <label v-if="control.type === 'select' && control?.options?.length" class="grid grid-cols-2 items-center justify-start w-full">
+          <span>{{ control.label }}</span>
           <pn-select
             v-model="control.value"
+            class="ml-4 rounded py-px px-1.5"
             :items="control.options"
             :name="`input_${i}`"
           />
-        </div>
+        </label>
       </template>
     </div>
   </div>
 </template>
-
-<style lang="scss" scoped>
-.controls {
-  display: flex;
-  flex-direction: column;
-  justify-content: stretch;
-  width: 100%;
-  height: 100%;
-  flex: 1 1 0%;
-
-  .controls-view,
-  .controls-list  {
-    display: flex;
-    justify-content: center;
-    padding: 1rem;
-  }
-
-  .controls-view {
-    align-items: center;
-    flex: 1 1 auto;
-
-    &.dark {
-      background-color: var(--pn-color-stone-800);
-    }
-  }
-  .controls-list {
-    flex-direction: column;
-    gap: 8px;
-    border-top: 1px solid var(--pn-color-stone-400);
-    height: 25%;
-    overflow-y: auto;
-
-    .controls-input {
-      display: flex;
-
-      > label {
-        width: 25%;
-      }
-
-      > input,
-      > select {
-        margin-left: 1rem;
-        width: 75%;
-        border-style: solid;
-        border-radius: 4px;
-        padding: 1px 6px;
-      }
-    }
-  }
-}
-</style>

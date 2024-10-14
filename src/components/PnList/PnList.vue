@@ -14,13 +14,14 @@ defineComponent({
 
 withDefaults(defineProps<IPnListProps>(), {
   disabled: false,
+  shadow: false,
   items: () => [],
 })
 </script>
 
 <template>
-  <div class="list">
-    <slot class="list-header" name="header" />
+  <div class="list bg-stone-50">
+    <slot class="list-header border border-solid border-stone-300" name="header" />
     <div class="list-content">
       <slot>
         <template v-for="(item, i) in items" :key="`item-${i}`">

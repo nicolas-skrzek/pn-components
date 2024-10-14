@@ -10,15 +10,13 @@ const props = ref([
 ])
 
 const value = ref(false)
-const mode = ref<PnMode>('light')
 </script>
 
 <template>
-  <controls-view v-model:controls="props" v-model:mode="mode" :title="ROUTES.switch.label" has-mode>
+  <controls-view v-model:controls="props" :title="ROUTES.switch.label">
     <pn-switch
       v-model="value"
       :disabled="(props[0].value as any)"
-      :mode="mode"
     >
       Switch
     </pn-switch>

@@ -12,12 +12,6 @@ const props = ref([
   { label: 'disabled', type: 'boolean', value: false },
   { label: 'placeholder', type: 'text', value: 'Write somesing' },
   { label: 'readonly', type: 'boolean', value: false },
-  {
-    label: 'size', type: 'select', options: SIZE, value: 'medium',
-  },
-  {
-    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-  },
 ])
 
 const text = ref('')
@@ -30,8 +24,6 @@ const text = ref('')
       :disabled="(props[2].value as any)"
       :placeholder="(props[3].value as any)"
       :readonly="(props[4].value as any)"
-      :size="(props[5].value as any)"
-      :status="(props[6].value as any)"
     >
       <template v-if="(props[0].value as any)" #prepend>
         <button type="button">

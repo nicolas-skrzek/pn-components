@@ -3,9 +3,6 @@ import {
   defineComponent, computed, ref,
 } from 'vue'
 import { selectedOptions, getOptionValue, getOptionLabel } from './PnSelect.utils'
-import type {
-  PnColor, PnMode, SizeElement,
-} from '@/types'
 import {
   PnMenu, PnTextField, PnIcon, PnList, PnListItem,
 } from '@/components'
@@ -15,11 +12,8 @@ export interface IPnSelectPros {
   disabled?: boolean;
   items: any[];
   modelValue?: any | any[];
-  mode?: PnMode;
   multiple?: boolean;
   placeholder?: string;
-  size?: SizeElement;
-  status?: PnColor | undefined;
 }
 
 defineComponent({
@@ -32,11 +26,8 @@ const props = withDefaults(defineProps<IPnSelectPros>(), {
   clearable: false,
   disabled: false,
   modelValue: undefined,
-  mode: 'light',
   multiple: false,
   placeholder: undefined,
-  status: 'primary',
-  size: 'medium',
 })
 
 const internalValue = computed({
@@ -93,20 +84,40 @@ const handleClear = () => {
 </script>
 
 <template>
-  <div class="pn-select" :class="[mode, { clearable, disabled, multiple }]">
+  <div class="pn-select" :class="{ clearable, disabled, multiple }">
     <pn-menu v-model="isOpen" :disabled="disabled" :close-on-click-content="!multiple">
       <template #activator>
-        <pn-text-field :disabled="disabled" :size="size" :status="status" :placeholder="placeholder" :readonly="!disabled">
-          <div v-if="options.length" class="form-input">
+        <pn-text-field class="readonly:cursor-pointer" :disabled="disabled" :placeholder="placeholder" :readonly="!disabled">
+          <div v-if="options.length" class="form-input readonly:cursor-pointer">
             <template v-for="(option, i) in options" :key="i">
-              <span class="pn-select-tag">
+              <span class="pn-select-tag"
+                :class="{
+                  'flex': multiple,
+                  'items-center': multiple,
+                  'justify-center': multiple,
+                  'py-0.5': multiple,
+                  'px-3': multiple,
+                  'm-0.5': multiple,
+                  'rounded-sm': multiple,
+                  'bg-stone-200': multiple,
+                  'pl-0.5': clearable,
+                  }">
                 <span class="pn-select-tag-text">{{ getOptionLabel(option) }}</span>
-                <pn-icon v-if="isClearable && multiple" class="pn-select-tag-remove" name="cancel" @click="selectOption(option)" />
+                <pn-icon
+                v-if="isClearable && multiple"
+                class="pn-select-tag-remove"
+                :class="{
+                  'text-stone-400': multiple,
+                  'hover:text-stone-500': multiple,
+                  'pl-1': clearable,
+                  }"
+                name="cancel"
+                @click="selectOption(option)" />
               </span>
             </template>
           </div>
           <template #append>
-            <div class="pn-select-action">
+            <div class="pn-select-action flex items-center justify-between pl-2">
               <pn-icon v-if="isClearable && !multiple" name="close" @click.prevent.stop="handleClear()" />
               <pn-icon v-if="isOpen" name="expand_less" />
               <pn-icon v-else name="expand_more" />
@@ -115,8 +126,8 @@ const handleClear = () => {
         </pn-text-field>
       </template>
       <template #content>
-        <div class="pn-card">
-          <div class="pn-card-content">
+        <div class="pn-card min-w-full">
+          <div class="p-0.5">
             <pn-list>
               <template v-for="(item, i) in items" :key="`item-${i}`">
                 <pn-list-item :disabled="disabled" :selected="isSelectOption(item)" link @click="selectOption(item)">
