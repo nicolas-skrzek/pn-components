@@ -5,9 +5,7 @@ import type { PnMode } from '@/types'
 
 export interface IPnTextField {
   disabled?: boolean;
-  intermediate?: boolean;
   modelValue?: boolean;
-  mode?: PnMode;
 }
 
 defineComponent({
@@ -18,9 +16,7 @@ const emits = defineEmits(['update:modelValue'])
 
 const props = withDefaults(defineProps<IPnTextField>(), {
   disabled: false,
-  intermediate: false,
   modelValue: false,
-  mode: 'light',
 })
 
 const checked = computed({
@@ -36,12 +32,14 @@ const toggoleCheck = () => {
 </script>
 
 <template>
-  <label class="checkbox flex items-center cursor-pointer" @click="toggoleCheck()" @keypress.space="toggoleCheck()">
-    <input v-model="checked" class="opacity-0 w-0 h-0" type="checkbox" tabindex="-1" :disabled="disabled" @change="toggoleCheck()" />
-    <pn-icon v-if="checked && !intermediate" name="check_box" :size="20" />
-    <pn-icon v-else-if="!checked && intermediate" name="indeterminate_check_box" :size="20" />
-    <pn-icon v-else name="check_box_outline_blank" :size="20" />
-    <span class="checkbox-label ml-1">
+  <label class="checkbox flex items-center" :class="{ 'cursor-pointer': !disabled, 'cursor-not-allowed': disabled, 'opacity-50': disabled }">
+    <input
+      v-model="checked"
+      class="h-4 w-4 cursor-pointer bg-white inline-block shrink-0 p-0 rounded ring-1 ring-gray-300 checked:ring-emerald-500 checked:bg-emerald-500 disabled:cursor-not-allowed"
+      type="checkbox"
+      :disabled="disabled"
+      @click="toggoleCheck()" />
+    <span class="checkbox-label ml-2">
       <slot />
     </span>
   </label>
