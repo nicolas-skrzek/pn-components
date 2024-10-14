@@ -22,6 +22,9 @@ import { ROUTES } from '@/router/routes.const'
     <router-link :to="{ name: ROUTES.icon.name }">
       {{ ROUTES.icon.label }}
     </router-link>
+    <router-link :to="{ name: ROUTES.inputfield.name }">
+      {{ ROUTES.inputfield.label }}
+    </router-link>
     <router-link :to="{ name: ROUTES.list.name }">
       {{ ROUTES.list.label }}
     </router-link>
@@ -31,20 +34,11 @@ import { ROUTES } from '@/router/routes.const'
     <router-link :to="{ name: ROUTES.modal.name }">
       {{ ROUTES.modal.label }}
     </router-link>
-    <router-link :to="{ name: ROUTES.select.name }">
-      {{ ROUTES.select.label }}
-    </router-link>
     <router-link :to="{ name: ROUTES.switch.name }">
       {{ ROUTES.switch.label }}
     </router-link>
     <router-link :to="{ name: ROUTES.table.name }">
       {{ ROUTES.table.label }}
-    </router-link>
-    <router-link :to="{ name: ROUTES.textarea.name }">
-      {{ ROUTES.textarea.label }}
-    </router-link>
-    <router-link :to="{ name: ROUTES.textfield.name }">
-      {{ ROUTES.textfield.label }}
     </router-link>
     <router-link :to="{ name: ROUTES.tree.name }">
       {{ ROUTES.tree.label }}
