@@ -7,7 +7,6 @@ import type { PnMode } from '@/types'
 
 const props = ref([
   { label: 'disabled', type: 'boolean', value: false },
-  { label: 'intermediate', type: 'boolean', value: false },
 ])
 
 const value = ref(false)
@@ -18,8 +17,6 @@ const value = ref(false)
     <pn-checkbox
       v-model="value"
       :disabled="(props[0].value as any)"
-      :intermediate="(props[1].value as any)"
-      :mode="mode"
     >
       checkbox
     </pn-checkbox>
