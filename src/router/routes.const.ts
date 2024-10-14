@@ -29,6 +29,11 @@ export const ROUTES = {
     name: 'icon',
     path: 'icon',
   },
+  inputfield: {
+    label: 'Input Field',
+    name: 'inputfield',
+    path: 'inputfield',
+  },
   list: {
     label: 'List',
     name: 'list',
@@ -44,11 +49,6 @@ export const ROUTES = {
     name: 'modal',
     path: 'modal',
   },
-  select: {
-    label: 'Select',
-    name: 'select',
-    path: 'select',
-  },
   switch: {
     label: 'Switch',
     name: 'switch',
@@ -58,16 +58,6 @@ export const ROUTES = {
     label: 'Table',
     name: 'table',
     path: 'table',
-  },
-  textarea: {
-    label: 'Textarea',
-    name: 'textarea',
-    path: 'textarea',
-  },
-  textfield: {
-    label: 'Textfield',
-    name: 'textfield',
-    path: 'textfield',
   },
   tree: {
     label: 'Tree',
