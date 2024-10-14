@@ -3,7 +3,6 @@ import { defineComponent } from 'vue'
 import type { PnColor } from '@/types'
 
 export interface IPnInputDetailProps {
-  status?: PnColor | undefined;
   message?: string;
   counter?: number;
 }
@@ -13,17 +12,14 @@ defineComponent({
 })
 
 const props = withDefaults(defineProps<IPnInputDetailProps>(), {
-  status: undefined,
   message: undefined,
   counter: 0,
 })
-
-const statusClass = (): string => (props.status ? `text-${props.status}` : '')
 </script>
 
 <template>
-  <div class="input-detail">
-    <span :class="['input-message', 'flex-auto', statusClass]">{{ message }}</span>
-    <span class="input-counter flex-initial">{{ counter }}</span>
+  <div class="input-detail flex justify-between px-3">
+    <span class="input-message flex-auto">{{ message }}</span>
+    <span class="input-counter flex-initial text-slate-400 text-xs">{{ counter }}</span>
   </div>
 </template>

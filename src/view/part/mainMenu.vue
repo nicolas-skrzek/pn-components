@@ -2,7 +2,7 @@
 import { ROUTES } from '@/router/routes.const'
 </script>
 <template>
-  <div class="app-menu flex flex-column">
+  <div class="app-menu flex flex-col">
     <router-link :to="{ name: ROUTES.home.name }">
       {{ ROUTES.home.label }}
     </router-link>

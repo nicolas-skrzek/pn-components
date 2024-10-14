@@ -72,40 +72,41 @@ const weeks = computed((): WeeksType[] => {
 </script>
 
 <template>
-  <div class="calendar">
-    <div class="calendar-header">
-      <div v-for="day in daysName" :key="day" class="calendar-day">
+  <div class="w-full h-full flex flex-col">
+    <div class="calendar-header flex  border-l border-y border-solid border-stone-200">
+      <div v-for="day in daysName" :key="day" class="calendar-day flex-1 font-semibold border-r border-solid border-stone-200 border-separate text-stone-700 p-1.5 text-center">
         {{ day }}
       </div>
     </div>
-    <div class="calendar-weeks">
-      <div v-for="week in weeks" :key="week.id" class="calendar-week">
+    <div class="calendar-weeks flex flex-col flex-1 border-l border-solid border-stone-200">
+      <div v-for="week in weeks" :key="week.id" class="calendar-week flex flex-1">
         <div
           v-for="day in week.days"
           :key="day.timestamp"
-          :class="['calendar-day', ...(day.class as [])]"
+          class="calendar-day flex-1 rounded-sm border-l border-b border-solid border-stone-200 border-separate text-stone-700 p-1.5 text-center"
+          :class="[...(day.class as [])]"
           aria-hidden="true"
           @click="$emit('click:day', day)"
           @keyDown="$emit('click:day', day)"
         >
-          <div class="calendar-day-label">
+          <div class="calendar-day-label pt-2 pb-1 px-1.5 cursor-pointer">
             {{ day.day }}
           </div>
           <template v-if="day?.events?.length">
             <div
               v-for="(event, i) in day.events"
               :key="day.timestamp + '_event_' + i"
-              class="calendar-event"
+              class="calendar-event flex rounded-sm p-0.5 text-left text-xs mb-px cursor-pointer"
               :style="event.style"
               :data-date="event.date"
               aria-hidden="true"
               @click="emits('click:event', event)"
               @keyDown="emits('click:event', event)"
             >
-              <div v-if="event?.time" class="calendar-event-time">
+              <div v-if="event?.time" class="calendar-event-time font-semibold">
                 {{ event.time }}
               </div>
-              <div class="calendar-event-label">
+              <div class="calendar-event-label overflow-hidden text-ellipsis whitespace-nowrap w-full pl-1">
                 {{ event.label }}
               </div>
             </div>

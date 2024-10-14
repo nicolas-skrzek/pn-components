@@ -46,17 +46,9 @@ const items = ref([
     calories: 518,
   },
 ])
-
-const props = ref([
-  { label: 'bordered', type: 'boolean', value: false },
-  { label: 'headerFixed', type: 'boolean', value: false },
-  {
-    label: 'density', type: 'select', options: ['small', 'medium', 'large'], value: 'medium',
-  },
-])
 </script>
 <template>
   <controls-view v-model:controls="props" :title="ROUTES.table.label">
-    <pn-table :items="items" :bordered="(props[0].value as any)" :header-fixed="(props[1].value as any)" :density="(props[2].value as any)" />
+    <pn-table :items="items" />
   </controls-view>
 </template>
