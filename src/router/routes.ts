@@ -4,14 +4,12 @@ import PnCalendar from '@/view/components/PnCalendar.vue'
 import PnCard from '@/view/components/PnCard.vue'
 import PnCheckbox from '@/view/components/PnCheckbox.vue'
 import PnIcon from '@/view/components/PnIcon.vue'
+import PnInputField from '@/view/components/PnInputField.vue'
 import PnList from '@/view/components/PnList.vue'
 import PnMenu from '@/view/components/PnMenu.vue'
 import PnModal from '@/view/components/PnModal.vue'
-import PnSelect from '@/view/components/PnSelect.vue'
 import PnSwitch from '@/view/components/PnSwitch.vue'
 import PnTable from '@/view/components/PnTable.vue'
-import PnTextArea from '@/view/components/PnTextArea.vue'
-import PnTextField from '@/view/components/PnTextField.vue'
 import PnTree from '@/view/components/PnTree.vue'
 import { ROUTES } from './routes.const'
 
@@ -47,6 +45,11 @@ const routes = [
         component: PnIcon,
       },
       {
+        path: ROUTES.inputfield.path,
+        name: ROUTES.inputfield.name,
+        component: PnInputField,
+      },
+      {
         path: ROUTES.list.path,
         name: ROUTES.list.name,
         component: PnList,
@@ -62,11 +65,6 @@ const routes = [
         component: PnModal,
       },
       {
-        path: ROUTES.select.path,
-        name: ROUTES.select.name,
-        component: PnSelect,
-      },
-      {
         path: ROUTES.switch.path,
         name: ROUTES.switch.name,
         component: PnSwitch,
@@ -75,16 +73,6 @@ const routes = [
         path: ROUTES.table.path,
         name: ROUTES.table.name,
         component: PnTable,
-      },
-      {
-        path: ROUTES.textarea.path,
-        name: ROUTES.textarea.name,
-        component: PnTextArea,
-      },
-      {
-        path: ROUTES.textfield.path,
-        name: ROUTES.textfield.name,
-        component: PnTextField,
       },
       {
         path: ROUTES.tree.path,
