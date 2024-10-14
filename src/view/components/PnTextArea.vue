@@ -13,12 +13,6 @@ const props = ref([
   { label: 'noResize', type: 'boolean', value: false },
   { label: 'placeholder', type: 'text', value: 'Write somesing' },
   { label: 'rows', type: 'number', value: 10 },
-  {
-    label: 'size', type: 'select', options: SIZE, value: 'medium',
-  },
-  {
-    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-  },
 ])
 
 const text = ref('')
@@ -34,8 +28,6 @@ const text = ref('')
       :no-resize="(props[3].value as any)"
       :placeholder="(props[4].value as any)"
       :rows="(props[5].value as any)"
-      :size="(props[6].value as any)"
-      :status="(props[7].value as any)"
     />
   </controls-view>
 </template>

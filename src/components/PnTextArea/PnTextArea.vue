@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { defineComponent, computed } from 'vue'
-import type { PnColor, SizeElement } from '@/types'
 import PnInputDetail from '@/components/PnInputDetail/PnInputDetail.vue'
 
 export interface IPnTextAreaProps {
@@ -10,8 +9,6 @@ export interface IPnTextAreaProps {
   noResize?: boolean;
   placeholder?: string;
   rows?: number;
-  size?: SizeElement;
-  status?: PnColor | undefined;
   modelValue?: string;
 }
 
@@ -28,8 +25,6 @@ const props = withDefaults(defineProps<IPnTextAreaProps>(), {
   noResize: false,
   placeholder: undefined,
   rows: 5,
-  status: 'primary',
-  size: 'medium',
   modelValue: '',
 })
 
@@ -42,9 +37,15 @@ const text = computed({
 </script>
 
 <template>
-  <div class="pn-text-area">
-    <div class="input-field" :class="[status]">
-      <textarea v-model="text" class="form-input" :placeholder="placeholder" :name="name" :rows="rows" />
+  <div class="flex flex-col">
+    <div class=" rounded-lg py-1 px-2 text-slate-600 dark:text-slate-100 bg-stone-100 dark:bg-stone-600 hover:opacity-75 transition-shadow duration-150 delay-150">
+      <textarea
+        v-model="text"
+        class="flex flex-wrap grow items-center w-full border-b border-solid border-slate-500 readonly:cursor-default disabled:cursor-not-allowed"
+        :class="{'resize-none': noResize}"
+        :placeholder="placeholder"
+        :name="name"
+        :rows="rows" />
     </div>
     <pn-input-detail v-if="displayDetails" :counter="counter" />
   </div>

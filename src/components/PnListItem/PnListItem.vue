@@ -21,7 +21,15 @@ withDefaults(defineProps<IPnListItemProps>(), {
 </script>
 
 <template>
-  <div class="list-item" :class="{ disabled, link, selected }">
+  <div class="py-1 px-4 items-center min-h-9 bg-stone-50"
+    :class="{
+      'cursor-not-allowed': disabled,
+      'text-stone-400': disabled,
+      'hover:bg-inherit': disabled,
+      'cursor-pointer': link,
+      'hover:bg-stone-200': link && !disabled,
+      'bg-stone-200': selected
+      }">
     <slot>
       {{ title }}
     </slot>

@@ -30,23 +30,14 @@ const props = ref([
   { label: 'disabled', type: 'boolean', value: false },
   { label: 'multiple', type: 'boolean', value: false },
   { label: 'placeholder', type: 'text', value: 'Select an item' },
-  {
-    label: 'size', type: 'select', options: SIZE, value: 'medium',
-  },
-  {
-    label: 'status', type: 'select', options: COLOR_STATUS, value: 'primary',
-  },
 ])
 
 const selectedOpt = ref(undefined)
-const mode = ref<PnMode>('light')
 </script>
 <template>
   <controls-view
     v-model:controls="props"
-    v-model:mode="mode"
     :title="ROUTES.select.label"
-    has-mode
   >
     <pn-select
       v-model="selectedOpt"
@@ -56,9 +47,6 @@ const mode = ref<PnMode>('light')
       :disabled="(props[1].value as any)"
       :multiple="(props[2].value as any)"
       :placeholder="(props[3].value as any)"
-      :size="(props[4].value as any)"
-      :status="(props[5].value as any)"
-      :mode="mode"
     />
   </controls-view>
 </template>

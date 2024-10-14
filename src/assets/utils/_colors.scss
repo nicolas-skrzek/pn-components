@@ -1,7 +1,0 @@
-:root {
-  @each $name, $color in $colors {
-    @each $gradien, $value in $color {
-      --pn-color-#{'' + $name}-#{'' + $gradien}: #{$value};
-    }
-  }
-}

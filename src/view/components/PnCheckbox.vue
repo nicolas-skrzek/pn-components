@@ -11,11 +11,10 @@ const props = ref([
 ])
 
 const value = ref(false)
-const mode = ref<PnMode>('light')
 </script>
 
 <template>
-  <controls-view v-model:controls="props" v-model:mode="mode" :title="ROUTES.checkbox.label" has-mode>
+  <controls-view v-model:controls="props" :title="ROUTES.checkbox.label">
     <pn-checkbox
       v-model="value"
       :disabled="(props[0].value as any)"
