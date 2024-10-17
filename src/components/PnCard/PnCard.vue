@@ -5,7 +5,7 @@ defineComponent({ name: 'PnCard' })
 </script>
 
 <template>
-  <div class="border shadow bg-stone-50 rounded-lg py-4 px-6">
+  <div class="border shadow bg-gray-50 rounded-lg py-4 px-6">
     <div class="card-header flex justify-between">
       <div class="card-header-content">
         <slot name="header">

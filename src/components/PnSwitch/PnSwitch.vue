@@ -32,7 +32,7 @@ const toggoleCheck = () => {
 <template>
   <label class="pn-switch flex items-center cursor-pointer" :class="{'cursor-not-allowed': disabled, 'opacity-40': disabled }">
     <div class="pn-switch-control inline-flex items-center justify-center relative" tabindex="0">
-      <div class="pn-switch-control-background rounded-lg w-9 h-3.5" :class="{'bg-gray-400': !checked, 'bg-blue-500': checked}" />
+      <div class="pn-switch-control-background rounded-lg w-9 h-3.5" :class="{'bg-gray-400': !checked, 'bg-gray-600': checked}" />
       <div
         class="pn-switch-control-input flex items-center justify-center absolute rounded-full transition-transform"
         :class="{'-translate-x-2.5': !checked, 'translate-x-2.5': checked}"

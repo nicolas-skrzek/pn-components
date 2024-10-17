@@ -20,6 +20,6 @@ const props = withDefaults(defineProps<IPnInputDetailProps>(), {
 <template>
   <div class="input-detail flex justify-between px-3">
     <span class="input-message flex-auto">{{ message }}</span>
-    <span class="input-counter flex-initial text-slate-400 text-xs">{{ counter }}</span>
+    <span class="input-counter flex-initial text-gray-400 text-xs">{{ counter }}</span>
   </div>
 </template>
