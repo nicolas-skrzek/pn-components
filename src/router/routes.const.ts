@@ -4,6 +4,11 @@ export const ROUTES = {
     name: 'home',
     path: '/',
   },
+  badge: {
+    label: 'Badge',
+    name: 'badge',
+    path: 'badge',
+  },
   button: {
     label: 'Button',
     name: 'button',
