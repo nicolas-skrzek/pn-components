@@ -7,6 +7,9 @@ import { ROUTES } from '@/router/routes.const'
       {{ ROUTES.home.label }}
     </router-link>
     <div class="menu-divider" />
+    <router-link :to="{ name: ROUTES.badge.name }">
+      {{ ROUTES.badge.label }}
+    </router-link>
     <router-link :to="{ name: ROUTES.button.name }">
       {{ ROUTES.button.label }}
     </router-link>

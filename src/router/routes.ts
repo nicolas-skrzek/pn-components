@@ -1,4 +1,5 @@
 import AppHome from '@/view/appHome.vue'
+import PnBadge from '@/view/components/PnBadge.vue'
 import PnButton from '@/view/components/PnButton.vue'
 import PnCalendar from '@/view/components/PnCalendar.vue'
 import PnCard from '@/view/components/PnCard.vue'
@@ -19,6 +20,11 @@ const routes = [
     name: ROUTES.home.name,
     component: AppHome,
     children: [
+      {
+        path: ROUTES.badge.path,
+        name: ROUTES.badge.name,
+        component: PnBadge,
+      },
       {
         path: ROUTES.button.path,
         name: ROUTES.button.name,
