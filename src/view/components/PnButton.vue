@@ -11,8 +11,13 @@ const props = ref([
 
 <template>
   <controls-view v-model:controls="props" :title="ROUTES.button.label">
-    <pn-button :disabled="(props[0].value as any)">
-      button
-    </pn-button>
+    <div class="flex gap-4">
+      <pn-button :disabled="(props[0].value as any)">
+        button
+      </pn-button>
+      <pn-button as="a" type="a" href='#/button' :disabled="(props[0].value as any)">
+        link
+      </pn-button>
+    </div>
   </controls-view>
 </template>
