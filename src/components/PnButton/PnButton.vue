@@ -20,7 +20,7 @@ const onClick = (): void => emits('click')
 <template>
   <button
     class="inline-flex items-center text-center px-3.5 py-2.5 rounded-md text-sm
-      text-slate-900 shadow-sm shadow-slate-300 dark:text-white
+      text-gray-900 shadow-sm shadow-gray-300 dark:text-white
       hover:not:disabled:bg-gray-100 cursor-pointer
       disabled:bg-gray-100 disabled:opacity-75 disabled:cursor-not-allowed"
     type="button"

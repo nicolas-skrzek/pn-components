@@ -32,7 +32,7 @@ const close = () => {
 </script>
 <template>
   <div v-if="intOpen" class="pn-modal flex content-center items-center justify-center fixed top-0 left-0 right-0 bottom-0 z-40">
-    <div class="pn-overlay h-full w-full absolute top-0 left-0 bg-slate-900 opacity-30" @click="close()" @keypress.esc="close()" />
+    <div class="pn-overlay h-full w-full absolute top-0 left-0 bg-gray-900 opacity-30" @click="close()" @keypress.esc="close()" />
     <div class="pn-modal-content absolute mx-auto" :class="{'w-1/4': size === 'small', 'w-2/4': size === 'medium', 'w-3/4': size === 'large'}">
       <slot name="content">
         <pn-card class="overflow-y-auto">

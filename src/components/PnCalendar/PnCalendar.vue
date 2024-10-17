@@ -73,17 +73,17 @@ const weeks = computed((): WeeksType[] => {
 
 <template>
   <div class="w-full h-full flex flex-col">
-    <div class="calendar-header flex  border-l border-y border-solid border-stone-200">
-      <div v-for="day in daysName" :key="day" class="calendar-day flex-1 font-semibold border-r border-solid border-stone-200 border-separate text-stone-700 p-1.5 text-center">
+    <div class="calendar-header flex  border-l border-y border-solid border-gray-200">
+      <div v-for="day in daysName" :key="day" class="calendar-day flex-1 font-semibold border-r border-solid border-gray-200 border-separate text-gray-700 p-1.5 text-center">
         {{ day }}
       </div>
     </div>
-    <div class="calendar-weeks flex flex-col flex-1 border-l border-solid border-stone-200">
+    <div class="calendar-weeks flex flex-col flex-1 border-l border-solid border-gray-200">
       <div v-for="week in weeks" :key="week.id" class="calendar-week flex flex-1">
         <div
           v-for="day in week.days"
           :key="day.timestamp"
-          class="calendar-day flex-1 rounded-sm border-l border-b border-solid border-stone-200 border-separate text-stone-700 p-1.5 text-center"
+          class="calendar-day flex-1 rounded-sm border-l border-b border-solid border-gray-200 border-separate text-gray-700 p-1.5 text-center"
           :class="[...(day.class as [])]"
           aria-hidden="true"
           @click="$emit('click:day', day)"

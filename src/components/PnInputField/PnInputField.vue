@@ -41,12 +41,12 @@ const value = computed({
 </script>
 <template>
   <label class="block">
-    <span class="text-slate-700 dark:text-slate-100 font-semibold">{{ labelText }}</span>
-    <div class="mt-1 rounded ring-1 ring-slate-300 dark:ring-slate-700 dark:bg-slate-900 dark:text-slate-100">
+    <span class="text-gray-700 dark:text-gray-100 font-semibold">{{ labelText }}</span>
+    <div class="mt-1 rounded ring-1 ring-gray-300 dark:ring-gray-700 dark:bg-gray-900 dark:text-gray-100">
       <textarea
         v-if="type === 'textarea'"
         v-model="value"
-        class="block w-full h-full py-2 px-4 disabled:bg-slate-200 readonly:bg-slate-200 dark:disabled:bg-slate-800 dark:disabled:text-slate-400 dark:readonly:bg-slate-800"
+        class="block w-full h-full py-2 px-4 disabled:bg-gray-200 readonly:bg-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:readonly:bg-gray-800"
         :class="{'resize-none': !resize}"
         :rows="rows"
         :placeholder="placeholder"
@@ -55,7 +55,7 @@ const value = computed({
       <select
         v-else-if="type === 'select'"
         v-model="value"
-        class="block w-full py-2 px-4 disabled:bg-slate-200 readonly:bg-slate-200 dark:disabled:bg-slate-800 dark:disabled:text-slate-400 dark:readonly:bg-slate-800"
+        class="block w-full py-2 px-4 disabled:bg-gray-200 readonly:bg-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:readonly:bg-gray-800"
         :disabled="disabled"
         :readonly="readonly">
         <slot name="options" />
@@ -63,7 +63,7 @@ const value = computed({
       <input
         v-else
         v-model="value"
-        class="w-full h-10 py-2 px-4 placeholder-slate-400 dark:placeholder-slate-500 disabled:bg-slate-200 readonly:bg-slate-200 dark:disabled:bg-slate-800 dark:disabled:text-slate-400 dark:readonly:bg-slate-800"
+        class="w-full h-10 py-2 px-4 placeholder-gray-400 dark:placeholder-gray-500 disabled:bg-gray-200 readonly:bg-gray-200 dark:disabled:bg-gray-800 dark:disabled:text-gray-400 dark:readonly:bg-gray-800"
         :type="type"
         :placeholder="placeholder"
         :disabled="disabled"
