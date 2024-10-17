@@ -1,50 +1,37 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { TPnDensity } from '@/types'
-import { getKeysOfArrayObject } from '@/utils/common.utils'
+import type { TemplateTableColumns } from '@/types'
 
 export interface IPnTable {
-    items: any[];
+    columns?: TemplateTableColumns[];
+    modelValue: any[];
   }
 
-const props = withDefaults(defineProps<IPnTable>(), {})
-const getValue = (array: any[]) => array.map((item) => Object.values(item))
-
-const headerItems = computed(() => getKeysOfArrayObject(props.items))
-
-const internalItems = computed(() => getValue(props.items))
+const props = withDefaults(defineProps<IPnTable>(), {
+  modelValue: null,
+})
 </script>
 
 <template>
-  <div
-    class="pn-table-overlayborder-b-0 not-prose bg-white dark:bg-gray-900 overflow-hidden flex border border-gray-200 dark:border-gray-700 relative rounded-t-md">
-    <table class="border-collapse min-w-full table-fixed divide-y divide-gray-300 dark:divide-gray-700">
-      <thead class="pn-table-head relative">
+  <div class="bg-white dark:bg-gray-900 overflow-hidden border border-gray-200 dark:border-gray-700 relative rounded-md min-w-full">
+    <table class="table-fixed divide-y divide-gray-300 dark:divide-gray-700 min-w-full">
+      <thead class="relative">
         <tr>
-          <slot name="header" :columns="headerItems">
-            <template v-for="item in headerItems" :key="item">
-              <th class="pn-table-cell text-left rtl:text-right px-4 py-3.5 text-gray-900 dark:text-white font-semibold text-sm">
-                <slot name="head" :column="item">
-                  {{ item }}
+          <slot name="header" :columns="columns">
+              <th v-for="col in columns" :key="col.key" class="text-left rtl:text-right px-4 py-3.5 text-slate-900 dark:text-white font-semibold text-sm" scope="col">
+                <slot name="head" :column="col.key">
+                  {{ col.label }}
                 </slot>
               </th>
-            </template>
           </slot>
         </tr>
       </thead>
-      <tbody class="pn-table-body divide-y divide-gray-200 dark:divide-gray-800">
-        <tr
-          v-for="(row, r) in internalItems"
-          :key="r"
-        >
+      <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+        <tr v-for="(row, rowKey) in modelValue" :key="rowKey" class="hover:bg-slate-50 dark:hover:bg-slate-900">
           <slot name="row" :row="row">
-            <td
-              v-for="(cell, c) in row"
-              :key="`${r}_${c}`"
-              class="pn-table-cell whitespace-nowrap px-4 py-4 text-gray-500 dark:text-gray-400 text-sm"
-            >
-              <slot name="cell" :cell="cell">
-                {{ cell }}
+            <td v-for="col in columns" :key="col.key" class="whitespace-nowrap px-4 py-4 text-slate-500 dark:text-slate-400 text-sm">
+              <slot name="cell" :cell="col">
+                {{ row[col.key] || col?.defaultValue }}
               </slot>
             </td>
           </slot>
