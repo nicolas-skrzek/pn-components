@@ -20,8 +20,8 @@ withDefaults(defineProps<IPnListProps>(), {
 </script>
 
 <template>
-  <div class="list bg-stone-50">
-    <slot class="list-header border border-solid border-stone-300" name="header" />
+  <div class="list bg-gray-50">
+    <slot class="list-header border border-solid border-gray-300" name="header" />
     <div class="list-content">
       <slot>
         <template v-for="(item, i) in items" :key="`item-${i}`">

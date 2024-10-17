@@ -9,15 +9,9 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
-      stone: colors.stone,
       black: colors.black,
       white: colors.white,
-      slate: colors.slate,
       gray: colors.gray,
-      red: colors.red,
-      amber: colors.amber,
-      blue: colors.blue,
-      emerald: colors.emerald,
     },
   },
   plugins: [],
