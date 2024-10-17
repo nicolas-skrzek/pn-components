@@ -35,7 +35,7 @@ const toggoleCheck = () => {
   <label class="checkbox flex items-center" :class="{ 'cursor-pointer': !disabled, 'cursor-not-allowed': disabled, 'opacity-50': disabled }">
     <input
       v-model="checked"
-      class="h-4 w-4 cursor-pointer bg-white inline-block shrink-0 p-0 rounded ring-1 ring-gray-300 checked:ring-emerald-500 checked:bg-emerald-500 disabled:cursor-not-allowed"
+      class="h-4 w-4 cursor-pointer bg-white inline-block shrink-0 p-0 rounded ring-1 ring-gray-300 checked:ring-gray-500 checked:bg-gray-500 disabled:cursor-not-allowed"
       type="checkbox"
       :disabled="disabled"
       @click="toggoleCheck()" />
