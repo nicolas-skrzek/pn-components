@@ -3,7 +3,18 @@ import { ref } from 'vue'
 import { ROUTES } from '@/router/routes.const'
 import { PnTable } from '@/components'
 import ControlsView from '@/view/controlsView.vue'
+import type { TemplateTableColumns } from '@/types'
 
+const columns = ref([
+  {
+    key: 'name',
+    label: 'Name'
+  },
+  {
+    key: 'calories',
+    label: 'Calories'
+  },
+])
 const items = ref([
   {
     name: 'Frozen Yogurt',
@@ -49,6 +60,6 @@ const items = ref([
 </script>
 <template>
   <controls-view v-model:controls="props" :title="ROUTES.table.label">
-    <pn-table :items="items" />
+    <pn-table v-model="items" :columns="columns" />
   </controls-view>
 </template>
